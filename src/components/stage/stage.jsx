@@ -43,7 +43,7 @@ const StageComponent = props => {
       theStageDimensions.scale = (floatWidth / standardStageWidth).toFixed(2);
 
       stageDimensions.width = theStageDimensions.width;
-      stageDimensions.height = parseInt(stageDimensions.width * 2 / 3);
+      stageDimensions.height = parseInt(stageDimensions.width * 3 / 4);
     }
 
     return (

@@ -9,7 +9,7 @@ import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
 import Controls from '../../containers/controls.jsx';
 import {getStageDimensions} from '../../lib/screen-utils';
-import {STAGE_SIZE_MODES} from '../../lib/layout-constants';
+import {STAGE_DISPLAY_SIZES, STAGE_SIZE_MODES} from '../../lib/layout-constants';
 
 import fullScreenIcon from './icon--fullscreen.svg';
 import largeStageIcon from './icon--large-stage.svg';
@@ -49,6 +49,7 @@ const messages = defineMessages({
 
 const StageHeaderComponent = function (props) {
     const {
+        theStageDimensions,
         isFullScreen,
         isPlayerOnly,
         onKeyPress,
@@ -58,13 +59,22 @@ const StageHeaderComponent = function (props) {
         onSetStageUnFull,
         showBranding,
         stageSizeMode,
+        stageSize,
         vm
     } = props;
 
     let header = null;
+    console.log('ccccc stageSize = ' + stageSize);
 
     if (isFullScreen) {
-        const stageDimensions = getStageDimensions(null, true);
+        // 在绝对模式下，大小外部传入，否则自己根据模式计算
+        let stageDimensions = {width: 0, height: 0, scale: 1};
+        if(stageSize != STAGE_SIZE_MODES.absolute) {
+          stageDimensions = getStageDimensions(null, true);
+        } else if(theStageDimensions) {
+          stageDimensions.width = theStageDimensions.width;
+        }
+      
         const stageButton = showBranding ? (
             <div className={styles.embedScratchLogo}>
                 <a
@@ -182,6 +192,10 @@ const mapStateToProps = state => ({
 
 StageHeaderComponent.propTypes = {
     intl: intlShape,
+    theStageDimensions: PropTypes.shape({
+      width: PropTypes.number,
+      height: PropTypes.number,
+    }),
     isFullScreen: PropTypes.bool.isRequired,
     isPlayerOnly: PropTypes.bool.isRequired,
     onKeyPress: PropTypes.func.isRequired,
@@ -191,6 +205,7 @@ StageHeaderComponent.propTypes = {
     onSetStageUnFull: PropTypes.func.isRequired,
     showBranding: PropTypes.bool.isRequired,
     stageSizeMode: PropTypes.oneOf(Object.keys(STAGE_SIZE_MODES)),
+    stageSize: PropTypes.oneOf(Object.keys(STAGE_DISPLAY_SIZES)).isRequired,
     vm: PropTypes.instanceOf(VM).isRequired
 };
 
