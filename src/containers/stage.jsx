@@ -72,6 +72,7 @@ class Stage extends React.Component {
         this.props.vm.attachV2SVGAdapter(new V2SVGAdapter());
         this.props.vm.attachV2BitmapAdapter(new V2BitmapAdapter());
     }
+
     componentDidMount () {
         this.attachRectEvents();
         this.attachMouseEvents(this.canvas);
@@ -85,7 +86,8 @@ class Stage extends React.Component {
             this.props.isFullScreen !== nextProps.isFullScreen ||
             this.state.question !== nextState.question ||
             this.props.micIndicator !== nextProps.micIndicator ||
-            this.props.isStarted !== nextProps.isStarted;
+            this.props.isStarted !== nextProps.isStarted ||
+            this.props.theStageDimensions !== nextProps.theStageDimensions;
     }
     componentDidUpdate (prevProps) {
         if (this.props.isColorPicking && !prevProps.isColorPicking) {
@@ -421,6 +423,10 @@ class Stage extends React.Component {
 }
 
 Stage.propTypes = {
+    theStageDimensions: PropTypes.shape({
+      width: PropTypes.number,
+      height: PropTypes.number,
+    }),
     isColorPicking: PropTypes.bool,
     isFullScreen: PropTypes.bool.isRequired,
     micIndicator: PropTypes.bool,

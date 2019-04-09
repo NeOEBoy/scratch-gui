@@ -12,6 +12,7 @@ import styles from './stage-wrapper.css';
 
 const StageWrapperComponent = function (props) {
     const {
+        theStageDimensions,
         isFullScreen,
         isRtl,
         isRendererSupported,
@@ -35,6 +36,7 @@ const StageWrapperComponent = function (props) {
                 {
                     isRendererSupported ?
                         <Stage
+                            theStageDimensions={theStageDimensions}
                             stageSize={stageSize}
                             vm={vm}
                         /> :
@@ -49,6 +51,10 @@ const StageWrapperComponent = function (props) {
 };
 
 StageWrapperComponent.propTypes = {
+    theStageDimensions: PropTypes.shape({
+      width: PropTypes.number,
+      height: PropTypes.number,
+    }),
     isFullScreen: PropTypes.bool,
     isRendererSupported: PropTypes.bool.isRequired,
     isRtl: PropTypes.bool.isRequired,

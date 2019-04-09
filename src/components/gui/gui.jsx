@@ -81,6 +81,7 @@ const GUIComponent = props => {
         intl,
         isCreating,
         isFullScreen,
+        theStageDimensions,
         isPlayerOnly,
         isRtl,
         isShared,
@@ -137,11 +138,12 @@ const GUIComponent = props => {
 
         return isPlayerOnly ? (
             <StageWrapper
+                theStageDimensions={theStageDimensions}
                 isFullScreen={isFullScreen}
                 isRendererSupported={isRendererSupported}
                 isRtl={isRtl}
                 loading={loading}
-                stageSize={STAGE_SIZE_MODES.large}
+                stageSize={STAGE_SIZE_MODES.absolute}
                 vm={vm}
             >
                 {alertsVisible ? (
@@ -374,6 +376,10 @@ GUIComponent.propTypes = {
     intl: intlShape.isRequired,
     isCreating: PropTypes.bool,
     isFullScreen: PropTypes.bool,
+    theStageDimensions: PropTypes.shape({
+      width: PropTypes.number,
+      height: PropTypes.number,
+    }),
     isPlayerOnly: PropTypes.bool,
     isRtl: PropTypes.bool,
     isShared: PropTypes.bool,

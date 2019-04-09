@@ -10,12 +10,13 @@ import TargetHighlight from '../../containers/target-highlight.jsx';
 import GreenFlagOverlay from '../../containers/green-flag-overlay.jsx';
 import Question from '../../containers/question.jsx';
 import MicIndicator from '../mic-indicator/mic-indicator.jsx';
-import {STAGE_DISPLAY_SIZES} from '../../lib/layout-constants.js';
+import theLayout, { STAGE_DISPLAY_SIZES, STAGE_SIZE_MODES } from '../../lib/layout-constants.js';
 import {getStageDimensions} from '../../lib/screen-utils.js';
 import styles from './stage.css';
 
 const StageComponent = props => {
     const {
+        theStageDimensions,
         canvas,
         dragRef,
         isColorPicking,
@@ -32,7 +33,18 @@ const StageComponent = props => {
         ...boxProps
     } = props;
 
-    const stageDimensions = getStageDimensions(stageSize, isFullScreen);
+    // 在绝对模式下，大小外部传入，否则自己根据模式计算
+    let stageDimensions = {width: 0, height: 0, scale: 1};
+    if(stageSize != STAGE_SIZE_MODES.absolute) {
+      stageDimensions = getStageDimensions(stageSize, isFullScreen);
+    } else if(theStageDimensions) {
+      let floatWidth = parseFloat(theStageDimensions.width);
+      let standardStageWidth = parseFloat(theLayout.standardStageWidth);
+      theStageDimensions.scale = (floatWidth / standardStageWidth).toFixed(2);
+
+      stageDimensions.width = theStageDimensions.width;
+      stageDimensions.height = parseInt(stageDimensions.width * 2 / 3);
+    }
 
     return (
         <div>
@@ -135,6 +147,10 @@ const StageComponent = props => {
     );
 };
 StageComponent.propTypes = {
+    theStageDimensions: PropTypes.shape({
+      width: PropTypes.number,
+      height: PropTypes.number,
+    }),
     canvas: PropTypes.instanceOf(Element).isRequired,
     colorInfo: Loupe.propTypes.colorInfo,
     dragRef: PropTypes.func,
