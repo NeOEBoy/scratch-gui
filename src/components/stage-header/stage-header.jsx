@@ -64,8 +64,6 @@ const StageHeaderComponent = function (props) {
     } = props;
 
     let header = null;
-    console.log('ccccc stageSize = ' + stageSize);
-
     if (isFullScreen) {
         // 在绝对模式下，大小外部传入，否则自己根据模式计算
         let stageDimensions = {width: 0, height: 0, scale: 1};

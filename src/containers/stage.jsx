@@ -18,8 +18,6 @@ import {
   deactivateColorPicker
 } from '../reducers/color-picker';
 
-import nipplejs from 'nipplejs';
-
 const colorPickerRadius = 20;
 const dragThreshold = 3; // Same as the block drag threshold
 
@@ -43,9 +41,7 @@ class Stage extends React.Component {
       'setDragCanvas',
       'clearDragCanvas',
       'drawDragCanvas',
-      'positionDragCanvas',
-      'handleDirectionChange',
-      'handlSpaceClick'
+      'positionDragCanvas'
     ]);
     this.state = {
       mouseDownTimeoutId: null,
@@ -82,13 +78,6 @@ class Stage extends React.Component {
     this.attachMouseEvents(this.canvas);
     this.updateRect();
     this.props.vm.runtime.addListener('QUESTION', this.questionListener);
-    this.nipple = nipplejs.create({
-      zone: this.theControlDiv,
-      mode: 'static',
-      position: { left: '50%', bottom: '50%' },
-      color: 'black'
-    });
-    this.nipple.on('dir:up, dir:down, dir:left, dir:right', this.handleDirectionChange)
   }
   shouldComponentUpdate(nextProps, nextState) {
     return this.props.stageSize !== nextProps.stageSize ||
@@ -114,7 +103,6 @@ class Stage extends React.Component {
     this.detachRectEvents();
     this.stopColorPickingLoop();
     this.props.vm.runtime.removeListener('QUESTION', this.questionListener);
-    this.nipple && this.nipple.destroy();
   }
   questionListener(question) {
     this.setState({ question: question });
@@ -176,28 +164,6 @@ class Stage extends React.Component {
       y: y,
       ...this.renderer.extractColor(x, y, colorPickerRadius)
     };
-  }
-  handleDirectionChange(evt, data) {
-    let angle = data.direction.angle;
-    if (angle === 'up') {
-      this._postKeyboardData(38, 'ArrowUp', true);
-    } else if (angle === 'down') {
-      this._postKeyboardData(40, 'ArrowDown', true);
-    } else if (angle === 'left') {
-      this._postKeyboardData(37, 'ArrowLeft', true);
-    } else if (angle === 'right') {
-      this._postKeyboardData(39, 'ArrowRight', true);
-    }
-  }
-  handlSpaceClick() {
-    this._postKeyboardData(32, ' ', true);
-  }
-  _postKeyboardData(keyCode, key, isDown) {
-    this.props.vm.postIOData('keyboard', {
-      keyCode: keyCode,
-      key: key,
-      isDown: isDown
-    });
   }
   handleDoubleClick(e) {
     const { x, y } = getEventXY(e);
@@ -443,53 +409,15 @@ class Stage extends React.Component {
       ...props
     } = this.props;
     return (
-      <div>
-        <StageComponent
-          canvas={this.canvas}
-          colorInfo={this.state.colorInfo}
-          dragRef={this.setDragCanvas}
-          question={this.state.question}
-          onDoubleClick={this.handleDoubleClick}
-          onQuestionAnswered={this.handleQuestionAnswered}
-          {...props}
-        />
-
-        {/* 加入虚拟键盘控制栏 */}
-        <div style=
-          {{
-            height: 200, backgroundColor: 'rgba(77, 151, 255, 0.95)',
-            position: 'fixed', left: 0, right: 0, bottom: 0, zIndex: 201222
-          }}>
-          <div style=
-            {{
-              width: 200, height: 200, position: 'absolute', left: 0,
-            }}
-            ref={(theControlDiv) => {
-              this.theControlDiv = theControlDiv;
-            }}>
-          </div>
-
-          <div style=
-            {{
-              width: 200, height: 200, position: 'absolute', right: 0,
-            }}>
-
-            <svg width="100%" height="100%">
-              <circle cx="100" cy="100" r="50" stroke="black"
-                stroke-width="1" fill="red"
-                onClick={this.handlSpaceClick}>
-              </circle>
-            </svg>
-
-            <h3 style=
-              {{
-                width: 200, position: 'absolute', bottom: 0
-              }}>
-              空格
-            </h3>
-          </div>
-        </div>
-      </div>
+      <StageComponent
+        canvas={this.canvas}
+        colorInfo={this.state.colorInfo}
+        dragRef={this.setDragCanvas}
+        question={this.state.question}
+        onDoubleClick={this.handleDoubleClick}
+        onQuestionAnswered={this.handleQuestionAnswered}
+        {...props}
+      />
     );
   }
 }

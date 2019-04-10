@@ -25,7 +25,8 @@ $z-index-dragging-sprite: 1020; /* so it is draggable into other panes */
 
 $z-index-stage-color-picker-background: 2000;
 $z-index-stage-with-color-picker: 2010;
-$z-index-stage-header: 5000;
+/*原来为5000，由于在header加了虚拟方向摇杆，增加些使得全屏下可以显示在顶层-neo*/
+$z-index-stage-header: 5010;
 $z-index-stage-wrapper-overlay: 5000;
 
 /* in most interfaces, the context menu is always on top */

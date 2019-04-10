@@ -6,6 +6,8 @@ import {defineMessages, injectIntl, intlShape} from 'react-intl';
 import GreenFlag from '../green-flag/green-flag.jsx';
 import StopAll from '../stop-all/stop-all.jsx';
 import TurboMode from '../turbo-mode/turbo-mode.jsx';
+import ArrowFlag from '../arrow-flag/arrow-flag.jsx';
+
 
 import styles from './controls.css';
 
@@ -24,11 +26,13 @@ const messages = defineMessages({
 
 const Controls = function (props) {
     const {
+        arrowFlagActive,
         active,
         className,
         intl,
         onGreenFlagClick,
         onStopAllClick,
+        onArrowFlagClick,
         turbo,
         ...componentProps
     } = props;
@@ -47,6 +51,10 @@ const Controls = function (props) {
                 title={intl.formatMessage(messages.stopTitle)}
                 onClick={onStopAllClick}
             />
+            <ArrowFlag
+                active={arrowFlagActive}
+                onClick={onArrowFlagClick}
+            />
             {turbo ? (
                 <TurboMode />
             ) : null}
@@ -55,15 +63,18 @@ const Controls = function (props) {
 };
 
 Controls.propTypes = {
+    arrowFlagActive: PropTypes.bool,
     active: PropTypes.bool,
     className: PropTypes.string,
     intl: intlShape.isRequired,
     onGreenFlagClick: PropTypes.func.isRequired,
     onStopAllClick: PropTypes.func.isRequired,
+    onArrowFlagClick: PropTypes.func.isRequired,
     turbo: PropTypes.bool
 };
 
 Controls.defaultProps = {
+    arrowFlagActive: false,
     active: false,
     turbo: false
 };
