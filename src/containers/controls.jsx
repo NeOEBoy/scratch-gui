@@ -18,32 +18,86 @@ class Controls extends React.Component {
       'handleGreenFlagClick',
       'handleStopAllClick',
       'handleArrowFlagClick',
-      'handleDirectionChange',
-      'handlSpaceClick'
+      'handleNippleStart',
+      'handleNippleEnd',
+      'handleNippleDirection',
+      'handleSpaceDown',
+      'handleSpaceUp',
+      '_handleDown',
+      '_handleUp'
     ]);
   }
   componentDidMount() {
-    console.log('Controls componentDidMount');
   }
   componentWillUnmount() {
     this.nipple && this.nipple.destroy();
     this.nipple = null;
+    this._longPressTimer && clearTimeout(this._longPressTimer);
+    this._longPressTimer = null;
   }
-  handleDirectionChange(evt, data) {
-    let angle = data.direction.angle;
-    if (angle === 'up') {
-      this._postKeyboardData(38, 'ArrowUp', true);
-    } else if (angle === 'down') {
-      this._postKeyboardData(40, 'ArrowDown', true);
-    } else if (angle === 'left') {
-      this._postKeyboardData(37, 'ArrowLeft', true);
-    } else if (angle === 'right') {
-      this._postKeyboardData(39, 'ArrowRight', true);
+  handleNippleStart(evt, data) {
+    // do nothing
+  }
+  handleNippleEnd(evt, data) {
+    if(this._lastDirectInfo) {
+      this._handleUp(this._lastDirectInfo.keyCode, this._lastDirectInfo.key);
+      this._lastDirectInfo = null;
     }
   }
-  handlSpaceClick() {
-    this._postKeyboardData(32, ' ', true);
+  handleNippleDirection(evt, data) {
+    let angle = data.direction.angle;
+
+    let keyCode;
+    let key;
+    if (angle === 'up') {
+      keyCode = 38;
+      key = 'ArrowUp';
+    } else if (angle === 'down') {
+      keyCode = 40;
+      key = 'ArrowDown';
+    } else if (angle === 'left') {
+      keyCode = 37;
+      key = 'ArrowLeft';
+    } else if (angle === 'right') {
+      keyCode = 39;
+      key = 'ArrowRight';
+    }
+
+    if(this._lastDirectInfo) {
+      this._handleUp(this._lastDirectInfo.keyCode, this._lastDirectInfo.key);
+      this._lastDirectInfo = null;
+    }
+
+    this._lastDirectInfo = {keyCode: keyCode, key: key};
+    this._handleDown(keyCode, key);
   }
+  handleSpaceDown() {
+    this._handleDown(32, ' ');
+  }
+  handleSpaceUp() {
+    this._handleUp(32, ' ');
+  }
+  _handleDown(keyCode, key) {
+    this._postKeyboardData(keyCode, key, true);
+
+    this._longPressTimer && clearTimeout(this._longPressTimer);
+    this._longPressTimer = null;
+    this._longPressTimer = setTimeout(() => {
+      this._longPressTimer && clearTimeout(this._longPressTimer);
+      this._longPressTimer = null;
+
+      this._longPressTimer = setInterval(() => {
+        this._postKeyboardData(keyCode, key, true);
+      }, 30);
+    }, 300);
+  }
+  _handleUp(keyCode, key) {
+    this._postKeyboardData(keyCode, key, false);
+
+    this._longPressTimer && clearTimeout(this._longPressTimer);
+    this._longPressTimer = null;
+  }
+
   _postKeyboardData(keyCode, key, isDown) {
     this.props.vm.postIOData('keyboard', {
       keyCode: keyCode,
@@ -72,22 +126,26 @@ class Controls extends React.Component {
       arrowFlagActive: !this.state.arrowFlagActive
     });
 
-    // 避免this.theControlDiv还没有创建
+    // 避免position出错
     setTimeout(() => {
       if (!this.nipple && this.state.arrowFlagActive) {
+        this.nipple && this.nipple.destroy();
         this.nipple = nipplejs.create({
           zone: this.theControlDiv,
           mode: 'static',
-          position: { left: '50%', bottom: '50%' },
+          position: { left: '100px', bottom: '100px' },
           color: 'rgb(255,171,25)',
           restOpacity: 1
         });
-        this.nipple.on('dir:up, dir:down, dir:left, dir:right', this.handleDirectionChange);
+        this.nipple
+        .on('dir:up, dir:down, dir:left, dir:right', this.handleNippleDirection)
+        .on('start', this.handleNippleStart)
+        .on('end', this.handleNippleEnd);
       } else if (this.nipple && !this.state.arrowFlagActive) {
         this.nipple && this.nipple.destroy();
         this.nipple = null;
       }
-    }, 0);
+    }, 150);
   }
   render() {
     const {
@@ -133,7 +191,10 @@ class Controls extends React.Component {
                 left: 0, top: 0, right: 0, bottom: 0
               }}>
               <circle cx="100" cy="100" r="50" fill="rgba(230,77,0, 0.5)"
-                onClick={this.handlSpaceClick}>
+                onMouseDown={this.handleSpaceDown}
+                onMouseUp={this.handleSpaceUp}
+                onTouchStart={this.handleSpaceDown}
+                onTouchEnd={this.handleSpaceUp}>
               </circle>
             </svg>
 
