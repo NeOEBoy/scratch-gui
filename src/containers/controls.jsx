@@ -216,7 +216,8 @@ class Controls extends React.Component {
 const KStyles = {
   arrowFlagDivDefault: {
     height: 200,
-    backgroundColor: 'rgba(76, 151, 255, 0.85)',
+    // 暂时去掉背景，避免遮住舞台区
+    // backgroundColor: 'rgba(76, 151, 255, 0.85)',
     position: 'fixed',
     left: 0,
     right: 0,
