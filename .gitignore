@@ -15,6 +15,9 @@ npm-*
 /dist
 /.opt-in
 
+# VSCode
+/.vscode
+
 # generated translation files
 /translations
 /locale
