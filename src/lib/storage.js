@@ -1,6 +1,7 @@
 import ScratchStorage from 'scratch-storage';
 
 import defaultProject from './default-project';
+import InternalHelper from './libraries/default-assets/internal-helper'
 
 /**
  * Wrapper for ScratchStorage which adds default web sources.
@@ -9,6 +10,16 @@ import defaultProject from './default-project';
 class Storage extends ScratchStorage {
     constructor () {
         super();
+
+        /**
+         * super()会初始两个Helper，这里对helper做一个扩展。
+         * builtinHelper(内存来源)，priority为100。
+         * webHelper(网络来源)，priority为-100。
+         * internalHelper(自定义来源，这里从工程里读取)，priority为200。
+         */
+        let internalHelper = new InternalHelper(this);
+        this.addHelper(internalHelper, 200);
+
         this.cacheDefaultProject();
     }
     addOfficialScratchWebStores () {
