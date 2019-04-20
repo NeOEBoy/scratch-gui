@@ -184,6 +184,12 @@ module.exports = [
             new CopyWebpackPlugin([{
                 from: 'extension-worker.{js,js.map}',
                 context: 'node_modules/scratch-vm/dist/web'
+            }]),
+            /// 拷贝libraries资源到static目录
+            new CopyWebpackPlugin([{
+              from: 'assets',
+              to: 'static/libraries-assets',
+              context: 'src/lib/libraries/default-assets'
             }])
         ])
     })
@@ -224,6 +230,12 @@ module.exports = [
                 new CopyWebpackPlugin([{
                     from: 'extension-worker.{js,js.map}',
                     context: 'node_modules/scratch-vm/dist/web'
+                }]),
+                /// 拷贝libraries资源到static目录
+                new CopyWebpackPlugin([{
+                  from: 'assets',
+                  to: 'static/libraries-assets',
+                  context: 'src/lib/libraries/default-assets'
                 }])
             ])
         })) : []

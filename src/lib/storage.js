@@ -10,7 +10,7 @@ import InternalHelper from './libraries/default-assets/internal-helper'
 class Storage extends ScratchStorage {
     constructor () {
         super();
-
+        
         /**
          * super()会初始两个Helper，这里对helper做一个扩展。
          * builtinHelper(内存来源)，priority为100。

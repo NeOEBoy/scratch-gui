@@ -30,6 +30,7 @@ class Helper {
 
 /**
   * 自定义Helper，该helper会从项目工程里读取预置的aseet文件。
+  * 属于磁盘缓存，用于图片库，音频库等图片获取。
  */
 class InternalHelper extends Helper {
   constructor(parent) {
