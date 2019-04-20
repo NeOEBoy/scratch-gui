@@ -29,8 +29,7 @@ class Helper {
 }
 
 /**
-  * 自定义Helper，该helper会从项目工程里读取预置的aseet文件，
-  * Storage应优先从该helper读取asset。
+  * 自定义Helper，该helper会从项目工程里读取预置的aseet文件。
  */
 class InternalHelper extends Helper {
   constructor(parent) {
