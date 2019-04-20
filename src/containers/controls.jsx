@@ -202,7 +202,7 @@ class Controls extends React.Component {
               {{
                 width: 200, height: 200, textAlign: "center",
                 verticalAlign: 'middle', display: 'table-cell',
-                contentEditable: false
+                contentEditable: false, userSelect: false
               }}>
               Space
                   </h3>
