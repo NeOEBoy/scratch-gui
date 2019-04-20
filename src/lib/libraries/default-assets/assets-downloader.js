@@ -3,6 +3,7 @@ const fs = require('fs')
 
 const costumeLibraryContent = require('../costumes.json')
 const backdropLibraryContent = require('../backdrops.json')
+const soundLibraryContent = require('../sounds.json')
 
 // const testUrl = 'https://cdn.assets.scratch.mit.edu/internalapi/asset/76fa99f67569fcd39b4be74ed38c33f3.png/get/';
 /**
@@ -30,6 +31,16 @@ const makeSyncAssetFromMit = async function () {
       console.info(`[success]${result}`);
     }
     console.info(`............[backdrops.json里的资源,下载完毕]............`);
+
+    console.info(`[sounds.json里的资源,开始下载]............`);
+    for (let i = 0; i < soundLibraryContent.length; ++i) {
+      let element = soundLibraryContent[i];
+      let assetUrl = `https://cdn.assets.scratch.mit.edu/internalapi/asset/${element.md5}/get/`
+      let localFileName = `assets/${element.md5}`;
+      let result = await downloadAsset(assetUrl, localFileName);
+      console.info(`[success]${result}`);
+    }
+    console.info(`............[sounds.json里的资源,下载完毕]............`);
   } catch (err) {
     console.error(`[failure]${err}`);
   }
