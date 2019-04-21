@@ -1,8 +1,10 @@
 @import "../../css/colors.css";
 @import "../../css/units.css";
 @import "../../css/z-index.css";
-
-$main-button-size: 2.75rem;
+/*
+* 原来2.75，改为2.25，要不挡住下方精灵图片了 -neo 
+*/
+$main-button-size: 2.25rem;
 $more-button-size: 2.25rem;
 
 .menu-container {
