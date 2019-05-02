@@ -101,7 +101,9 @@ class Storage extends ScratchStorage {
   makeExtraParam() {
     const params = {};
     params._timestamp = new Date().getTime();
-    params._nonce = md5(params._timestamp);
+    let tsString = params._timestamp + '';
+    let rdString = Math.floor(Math.random() * 1000) + '';
+    params._nonce = md5(tsString + rdString);
     params._appid = KAppid;
 
     // 根据属性排序

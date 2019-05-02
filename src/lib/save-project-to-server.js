@@ -38,7 +38,9 @@ export default function (projectId, vmState, params) {
 
   /**增加sign begin -neo */
   queryParams._timestamp = new Date().getTime();
-  queryParams._nonce = md5(queryParams._timestamp);
+  let tsString = queryParams._timestamp + '';
+  let rdString = Math.floor(Math.random() * 1000) + '';
+  queryParams._nonce = md5(tsString + rdString);
   queryParams._appid = KAppid;
 
   // 根据属性排序
