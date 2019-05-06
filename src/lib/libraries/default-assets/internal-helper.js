@@ -75,6 +75,11 @@ class InternalHelper extends Helper {
         oReq.open("GET", `/static/libraries-assets/${assetId}.${dataFormat}`, true);
         oReq.responseType = "arraybuffer";
         oReq.onload = function () {
+          if(oReq.status !== 200) {
+            reject();
+            return;
+          }
+          
           var arrayBuffer = oReq.response; // Note: not oReq.responseText
           if (arrayBuffer) {
             // console.log('arrayBuffer = ' + arrayBuffer);
