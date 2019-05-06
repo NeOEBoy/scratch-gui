@@ -50,23 +50,51 @@ class InternalHelper extends Helper {
 
     let asset = this.parent.createAsset(assetType, dataFormat, null, assetId);
 
+    // 方案1，使用arraybuffer-loader同步读取数据，webpack打包时会所有资源打入js，导致文件较大。
     // 由于arraybuffer-loader加载二进制数据到data中较慢，为避免卡住UI，使用delay 0s策略，模拟异步过程。
-    const delayLoadAsset = () => {
-      const timerPromise = new Promise((resolve) => {
-        return setTimeout(resolve, 0);
-      })
+    // const loadAssetPromise = () => {
+    //   const timerPromise = new Promise((resolve) => {
+    //     return setTimeout(resolve, 0);
+    //   })
 
-      return timerPromise.then(() => {
-        // 文件不存在会抛出Error: Cannot find module './cd21514d0531fdffb22204e0ec5ed84a.svg'
-        let data = Buffer.from(
-          require(`!arraybuffer-loader!./assets/${assetId}.${dataFormat}`));
-        asset.setData(data, dataFormat);
-      }).catch((err) => {
-        return Promise.reject(err);
-      })
+    //   return timerPromise.then(() => {
+    //     // 文件不存在会抛出Error: Cannot find module './cd21514d0531fdffb22204e0ec5ed84a.svg'
+    //     // let data = Buffer.from(
+    //     //   require(`!arraybuffer-loader!./assets/${assetId}.${dataFormat}`));
+    //     // asset.setData(data, dataFormat);
+    //   }).catch((err) => {
+    //     return Promise.reject(err);
+    //   })
+    // };
+
+    // 方案2，使用XMLHttpRequest异步读取二进制流
+    // 参考自：https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Sending_and_Receiving_Binary_Data
+    const loadAssetPromise = () => {
+      const readPromise = new Promise((resolve, reject) => {
+        let oReq = new XMLHttpRequest();
+        oReq.open("GET", `/static/libraries-assets/${assetId}.${dataFormat}`, true);
+        oReq.responseType = "arraybuffer";
+        oReq.onload = function () {
+          var arrayBuffer = oReq.response; // Note: not oReq.responseText
+          if (arrayBuffer) {
+            // console.log('arrayBuffer = ' + arrayBuffer);
+            let data = Buffer.from(arrayBuffer);
+            // let data = iconv.encode(arrayBuffer, 'binary');
+            // console.log('data = ' + data);
+            asset.setData(data, dataFormat);
+            resolve();
+          }
+        };
+        oReq.onerror = function() {
+          reject();
+        };
+        oReq.send(null);
+      });
+
+      return readPromise;
     };
 
-    return delayLoadAsset().then(() => asset);
+    return loadAssetPromise().then(() => asset);
   }
 }
 
