@@ -190,6 +190,12 @@ module.exports = [
               from: 'assets',
               to: 'static/libraries-assets',
               context: 'src/lib/libraries/default-assets'
+            }]),
+            /// 拷贝vm的static资源到static目录
+            new CopyWebpackPlugin([{
+              from: 'static',
+              to: 'static',
+              context: 'node_modules/scratch-vm/dist/web'
             }])
         ])
     })
@@ -236,6 +242,12 @@ module.exports = [
                   from: 'assets',
                   to: 'static/libraries-assets',
                   context: 'src/lib/libraries/default-assets'
+                }]),
+                /// 拷贝vm的static资源到static目录
+                new CopyWebpackPlugin([{
+                  from: 'static',
+                  to: 'static',
+                  context: 'node_modules/scratch-vm/dist/web'
                 }])
             ])
         })) : []
