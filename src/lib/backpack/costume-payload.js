@@ -29,8 +29,9 @@ const costumePayload = costume => {
 
     // Do not generate the thumbnail from the raw asset. Instead use the getCostumeUrl
     // utility which inlines the fonts to make the thumbnail show the right fonts.
-    const inlinedFontDataUrl = getCostumeUrl(costume.asset);
-    return jpegThumbnail(inlinedFontDataUrl).then(thumbnail => {
+    /// todo getCostumeUrl被改成promise异步，启用背包时注意下，测试下是否可用-neo
+    const getCostumeUrlPromise = getCostumeUrl(costume.asset);
+    return getCostumeUrlPromise.then((inlinedFontDataUrl)=>jpegThumbnail(inlinedFontDataUrl)).then(thumbnail => {
         payload.thumbnail = thumbnail.replace('data:image/jpeg;base64,', '');
         return payload;
     });

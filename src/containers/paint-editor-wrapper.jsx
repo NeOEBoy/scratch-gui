@@ -3,6 +3,7 @@ import React from 'react';
 import bindAll from 'lodash.bindall';
 import VM from 'scratch-vm';
 import PaintEditor from 'scratch-paint';
+import {inlineSvgFontsAsync} from 'scratch-svg-renderer';
 
 import {connect} from 'react-redux';
 
@@ -24,12 +25,16 @@ class PaintEditorWrapper extends React.Component {
     }
     handleUpdateImage (isVector, image, rotationCenterX, rotationCenterY) {
         if (isVector) {
+          // console.log('handleUpdateName isVector image = ' + image)
+
             this.props.vm.updateSvg(
                 this.props.selectedCostumeIndex,
                 image,
                 rotationCenterX,
                 rotationCenterY);
         } else {
+          // console.log('handleUpdateName bitmap image = ' + image)
+
             this.props.vm.updateBitmap(
                 this.props.selectedCostumeIndex,
                 image,
@@ -52,6 +57,7 @@ class PaintEditorWrapper extends React.Component {
                 image={vm.getCostume(selectedCostumeIndex)}
                 onUpdateImage={this.handleUpdateImage}
                 onUpdateName={this.handleUpdateName}
+                inlineSvgFontsAsync={inlineSvgFontsAsync}
             />
         );
     }

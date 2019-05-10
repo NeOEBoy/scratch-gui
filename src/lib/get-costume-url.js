@@ -1,5 +1,5 @@
 import storage from './storage';
-import {inlineSvgFonts} from 'scratch-svg-renderer';
+import {inlineSvgFontsAsync} from 'scratch-svg-renderer';
 
 // Contains 'font-family', but doesn't only contain 'font-family="none"'
 const HAS_FONT_REGEXP = 'font-family(?!="none")';
@@ -11,7 +11,7 @@ const getCostumeUrl = (function () {
     return function (asset) {
 
         if (cachedAssetId === asset.assetId) {
-            return cachedUrl;
+            return Promise.resolve(cachedUrl);
         }
 
         cachedAssetId = asset.assetId;
@@ -21,16 +21,20 @@ const getCostumeUrl = (function () {
         if (asset.assetType === storage.AssetType.ImageVector) {
             const svgString = asset.decodeText();
             if (svgString.match(HAS_FONT_REGEXP)) {
-                const svgText = inlineSvgFonts(svgString);
-                cachedUrl = `data:image/svg+xml;utf8,${encodeURIComponent(svgText)}`;
+                return inlineSvgFontsAsync(svgString).then((svgText)=>{
+                  cachedUrl = `data:image/svg+xml;utf8,${encodeURIComponent(svgText)}`;
+                  return Promise.resolve(cachedUrl);
+                });
             } else {
                 cachedUrl = asset.encodeDataURI();
+                return Promise.resolve(cachedUrl);
             }
         } else {
             cachedUrl = asset.encodeDataURI();
+            return Promise.resolve(cachedUrl);
         }
 
-        return cachedUrl;
+        // return cachedUrl;
     };
 }());
 

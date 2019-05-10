@@ -18,19 +18,32 @@ class Watermark extends React.Component {
         bindAll(this, [
             'getCostumeData'
         ]);
+        this.state = {
+          costumeData: null
+        }
+    }
+
+    componentDidMount() {
+      this.getCostumeData();
     }
 
     getCostumeData () {
-        if (!this.props.asset) return null;
+        if (!this.props.asset) {
+          this.setState({costumeData: null});
+          return;
+        };
 
-        return getCostumeUrl(this.props.asset);
+        getCostumeUrl(this.props.asset).then((data)=>{
+          this.setState({costumeData: data});
+        });
     }
 
     render () {
         const componentProps = omit(this.props, ['asset', 'vm']);
+        const {costumeData} = this.state;
         return (
             <WatermarkComponent
-                costumeURL={this.getCostumeData()}
+                costumeURL={costumeData}
                 {...componentProps}
             />
         );

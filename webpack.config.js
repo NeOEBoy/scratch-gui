@@ -196,7 +196,12 @@ module.exports = [
               from: 'static',
               to: 'static',
               context: 'node_modules/scratch-vm/dist/web'
-            }])
+            }]),
+            /// 拷贝svg-renderer的static资源到static目录
+            new CopyWebpackPlugin([{
+              from: 'node_modules/scratch-svg-renderer/dist/web/static/svg-fonts',
+              to: 'static/svg-fonts'
+            }]),
         ])
     })
 ].concat(
@@ -248,7 +253,12 @@ module.exports = [
                   from: 'static',
                   to: 'static',
                   context: 'node_modules/scratch-vm/dist/web'
-                }])
+                }]),
+                /// 拷贝svg-renderer的static资源到static目录
+                new CopyWebpackPlugin([{
+                  from: 'node_modules/scratch-svg-renderer/dist/web/static/svg-fonts',
+                  to: 'static/svg-fonts'
+                }]),
             ])
         })) : []
 );

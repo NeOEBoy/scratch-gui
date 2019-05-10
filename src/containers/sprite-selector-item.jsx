@@ -29,12 +29,30 @@ class SpriteSelectorItem extends React.PureComponent {
             'handleMouseMove',
             'handleMouseUp'
         ]);
+        this.state = {
+          costumeData: null
+        }
     }
-    getCostumeData () {
-        if (this.props.costumeURL) return this.props.costumeURL;
-        if (!this.props.asset) return null;
 
-        return getCostumeUrl(this.props.asset);
+    componentDidMount() {
+      // console.log('SpriteSelectorItem componentDidMount')
+      this.getCostumeData();
+    }
+
+    getCostumeData () {
+        if (this.props.costumeURL) {
+          this.setState({costumeData: this.props.costumeURL});
+          return;
+        }
+
+        if (!this.props.asset) {
+          this.setState({costumeData: null});
+          return;
+        }
+
+        getCostumeUrl(this.props.asset).then((data)=>{
+          this.setState({costumeData: data});
+        });
     }
     handleMouseUp () {
         this.initialOffset = null;
@@ -61,7 +79,7 @@ class SpriteSelectorItem extends React.PureComponent {
         const dy = currentOffset.y - this.initialOffset.y;
         if (Math.sqrt((dx * dx) + (dy * dy)) > dragThreshold) {
             this.props.onDrag({
-                img: this.getCostumeData(),
+                img: this.state.costumeData,
                 currentOffset: currentOffset,
                 dragging: true,
                 dragType: this.props.dragType,
@@ -120,9 +138,11 @@ class SpriteSelectorItem extends React.PureComponent {
             /* eslint-enable no-unused-vars */
             ...props
         } = this.props;
+
+        const {costumeData} = this.state;
         return (
             <SpriteSelectorItemComponent
-                costumeURL={this.getCostumeData()}
+                costumeURL={costumeData}
                 onClick={this.handleClick}
                 onDeleteButtonClick={onDeleteButtonClick ? this.handleDelete : null}
                 onDuplicateButtonClick={onDuplicateButtonClick ? this.handleDuplicate : null}
