@@ -4,8 +4,6 @@ import React from 'react';
 import {defineMessages, injectIntl, intlShape} from 'react-intl';
 import VM from 'scratch-vm';
 
-import costumeLibraryContent from '../lib/libraries/costumes.json';
-import spriteTags from '../lib/libraries/sprite-tags';
 import LibraryComponent from '../components/library/library.jsx';
 
 const messages = defineMessages({
@@ -16,13 +14,33 @@ const messages = defineMessages({
     }
 });
 
-
 class CostumeLibrary extends React.PureComponent {
     constructor (props) {
         super(props);
         bindAll(this, [
             'handleItemSelected'
         ]);
+
+        this.state = {
+          isLoading: true,
+          libraryContent: [],
+          tags: []
+        }
+    }
+    componentDidMount () {
+      const spriteTags = require('../lib/libraries/sprite-tags').default;
+      this.setState({
+        tags: spriteTags
+      });
+
+      const jsonLoader = require('../lib/libraries/json-loader').default;
+      jsonLoader(`/static/libraries-json/costumes.json`)
+        .then((jsonResponse) => {
+          this.setState({
+            isLoading: false,
+            libraryContent: jsonResponse
+          });
+        })
     }
     handleItemSelected (item) {
         const split = item.md5.split('.');
@@ -39,15 +57,17 @@ class CostumeLibrary extends React.PureComponent {
         this.props.vm.addCostumeFromLibrary(item.md5, vmCostume);
     }
     render () {
+        const { isLoading, libraryContent, tags } = this.state;
         return (
-            <LibraryComponent
-                data={costumeLibraryContent}
-                id="costumeLibrary"
-                tags={spriteTags}
-                title={this.props.intl.formatMessage(messages.libraryTitle)}
-                onItemSelected={this.handleItemSelected}
-                onRequestClose={this.props.onRequestClose}
-            />
+          <LibraryComponent
+              isLoading={isLoading}
+              data={libraryContent}
+              id="costumeLibrary"
+              tags={tags}
+              title={this.props.intl.formatMessage(messages.libraryTitle)}
+              onItemSelected={this.handleItemSelected}
+              onRequestClose={this.props.onRequestClose}
+          />
         );
     }
 }

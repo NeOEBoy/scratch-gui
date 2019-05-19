@@ -23,6 +23,7 @@ class BackdropLibrary extends React.Component {
             'handleItemSelect'
         ]);
         this.state = {
+          isLoading: true,
           libraryContent: [],
           tags: []
         }
@@ -33,12 +34,14 @@ class BackdropLibrary extends React.Component {
         tags: backdropTags
       });
 
-      process.nextTick(() => {
-        const backdropLibraryContent = require('../lib/libraries/backdrops.json');
-        this.setState({
-          libraryContent: backdropLibraryContent
-        });
-      })
+      const jsonLoader = require('../lib/libraries/json-loader').default;
+      jsonLoader(`/static/libraries-json/backdrops.json`)
+        .then((jsonResponse) => {
+          this.setState({
+            isLoading: false,
+            libraryContent: jsonResponse
+          });
+        })
     }
     handleItemSelect (item) {
         const vmBackdrop = {
@@ -52,9 +55,10 @@ class BackdropLibrary extends React.Component {
         this.props.vm.addBackdrop(item.md5, vmBackdrop);
     }
     render () {
-        const { libraryContent, tags } = this.state;
+        const { isLoading, libraryContent, tags } = this.state;
         return (
             <LibraryComponent
+                isLoading={isLoading}
                 data={libraryContent}
                 id="backdropLibrary"
                 tags={tags}

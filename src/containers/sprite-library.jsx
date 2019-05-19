@@ -23,6 +23,7 @@ class SpriteLibrary extends React.PureComponent {
             'handleItemSelect'
         ]);
         this.state = {
+          isLoading: true,
           libraryContent: [],
           tags: []
         }
@@ -33,12 +34,14 @@ class SpriteLibrary extends React.PureComponent {
         tags: spriteTags
       });
 
-      process.nextTick(() => {
-        const spriteLibraryContent = require('../lib/libraries/sprites.json');
-        this.setState({
-          libraryContent: spriteLibraryContent
-        });
-      })
+      const jsonLoader = require('../lib/libraries/json-loader').default;
+      jsonLoader(`/static/libraries-json/sprites.json`)
+        .then((jsonResponse) => {
+          this.setState({
+            isLoading: false,
+            libraryContent: jsonResponse
+          });
+        })
     }
     handleItemSelect (item) {
         // Randomize position of library sprite
@@ -48,9 +51,10 @@ class SpriteLibrary extends React.PureComponent {
         });
     }
     render () {
-        const { libraryContent, tags } = this.state;
+        const { isLoading, libraryContent, tags } = this.state;
         return (
             <LibraryComponent
+                isLoading={isLoading}
                 data={libraryContent}
                 id="spriteLibrary"
                 tags={tags}

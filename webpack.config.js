@@ -191,6 +191,12 @@ module.exports = [
               to: 'static/libraries-assets',
               context: 'src/lib/libraries/default-assets'
             }]),
+            /// 拷贝libraries json到static目录
+            new CopyWebpackPlugin([{
+              from: '*.json',
+              to: 'static/libraries-json',
+              context: 'src/lib/libraries'
+            }]),
             /// 拷贝vm的static资源到static目录
             new CopyWebpackPlugin([{
               from: 'static',
@@ -247,6 +253,12 @@ module.exports = [
                   from: 'assets',
                   to: 'static/libraries-assets',
                   context: 'src/lib/libraries/default-assets'
+                }]),
+                /// 拷贝libraries json到static目录
+                new CopyWebpackPlugin([{
+                  from: '*.json',
+                  to: 'static/libraries-json',
+                  context: 'src/lib/libraries'
                 }]),
                 /// 拷贝vm的static资源到static目录
                 new CopyWebpackPlugin([{

@@ -18,7 +18,6 @@ import {fetchCode} from '../lib/backpack-api';
 
 import StageSelectorComponent from '../components/stage-selector/stage-selector.jsx';
 
-import backdropLibraryContent from '../lib/libraries/backdrops.json';
 import {handleFileUpload, costumeUpload} from '../lib/file-uploader.js';
 
 const dragTypes = [
@@ -72,10 +71,14 @@ class StageSelector extends React.Component {
             this.props.onActivateTab(COSTUMES_TAB_INDEX)
         );
     }
-    handleSurpriseBackdrop () {
-        // @todo should this not add a backdrop you already have?
-        const item = backdropLibraryContent[Math.floor(Math.random() * backdropLibraryContent.length)];
-        this.addBackdropFromLibraryItem(item);
+    handleSurpriseBackdrop() {
+      const jsonLoader = require('../lib/libraries/json-loader').default;
+      jsonLoader(`/static/libraries-json/backdrops.json`)
+        .then((jsonResponse) => {
+          // @todo should this not add a backdrop you already have?
+          const item = jsonResponse[Math.floor(Math.random() * jsonResponse.length)];
+          this.addBackdropFromLibraryItem(item);
+        })
     }
     handleEmptyBackdrop () {
         this.handleNewBackdrop(emptyCostume(this.props.intl.formatMessage(sharedMessages.backdrop, {index: 1})));

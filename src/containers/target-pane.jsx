@@ -14,7 +14,6 @@ import {showStandardAlert, closeAlertWithId} from '../reducers/alerts';
 import {setRestore} from '../reducers/restore-deletion';
 import DragConstants from '../lib/drag-constants';
 import TargetPaneComponent from '../components/target-pane/target-pane.jsx';
-import spriteLibraryContent from '../lib/libraries/sprites.json';
 import {handleFileUpload, spriteUpload} from '../lib/file-uploader.js';
 import sharedMessages from '../lib/shared-messages';
 import {emptySprite} from '../lib/empty-assets';
@@ -105,10 +104,14 @@ class TargetPane extends React.Component {
         }
     }
     handleSurpriseSpriteClick () {
-        const item = spriteLibraryContent[Math.floor(Math.random() * spriteLibraryContent.length)];
-        randomizeSpritePosition(item);
-        this.props.vm.addSprite(JSON.stringify(item.json))
+      const jsonLoader = require('../lib/libraries/json-loader').default;
+      jsonLoader(`/static/libraries-json/sprites.json`)
+        .then((jsonResponse) => {
+          const item = jsonResponse[Math.floor(Math.random() * jsonResponse.length)];
+          randomizeSpritePosition(item);
+          this.props.vm.addSprite(JSON.stringify(item.json))
             .then(this.handleActivateBlocksTab);
+        })
     }
     handlePaintSpriteClick () {
         const formatMessage = this.props.intl.formatMessage;

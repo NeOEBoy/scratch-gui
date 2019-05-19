@@ -38,9 +38,6 @@ import cameraIcon from '../components/action-menu/icon--camera.svg';
 import surpriseIcon from '../components/action-menu/icon--surprise.svg';
 import searchIcon from '../components/action-menu/icon--search.svg';
 
-import costumeLibraryContent from '../lib/libraries/costumes.json';
-import backdropLibraryContent from '../lib/libraries/backdrops.json';
-
 let messages = defineMessages({
     addLibraryBackdropMsg: {
         defaultMessage: 'Choose a Backdrop',
@@ -175,32 +172,40 @@ class CostumeTab extends React.Component {
         this.handleNewCostume(emptyCostume(name));
     }
     handleSurpriseCostume () {
-        const item = costumeLibraryContent[Math.floor(Math.random() * costumeLibraryContent.length)];
-        const split = item.md5.split('.');
-        const type = split.length > 1 ? split[1] : null;
-        const rotationCenterX = type === 'svg' ? item.info[0] : item.info[0] / 2;
-        const rotationCenterY = type === 'svg' ? item.info[1] : item.info[1] / 2;
-        const vmCostume = {
-            name: item.name,
-            md5: item.md5,
-            rotationCenterX,
-            rotationCenterY,
-            bitmapResolution: item.info.length > 2 ? item.info[2] : 1,
-            skinId: null
-        };
-        this.handleNewCostume(vmCostume, true /* fromCostumeLibrary */);
+        const jsonLoader = require('../lib/libraries/json-loader').default;
+        jsonLoader(`/static/libraries-json/costumes.json`)
+          .then((jsonResponse) => {
+            const item = jsonResponse[Math.floor(Math.random() * jsonResponse.length)];
+            const split = item.md5.split('.');
+            const type = split.length > 1 ? split[1] : null;
+            const rotationCenterX = type === 'svg' ? item.info[0] : item.info[0] / 2;
+            const rotationCenterY = type === 'svg' ? item.info[1] : item.info[1] / 2;
+            const vmCostume = {
+                name: item.name,
+                md5: item.md5,
+                rotationCenterX,
+                rotationCenterY,
+                bitmapResolution: item.info.length > 2 ? item.info[2] : 1,
+                skinId: null
+            };
+            this.handleNewCostume(vmCostume, true /* fromCostumeLibrary */);
+          })
     }
     handleSurpriseBackdrop () {
-        const item = backdropLibraryContent[Math.floor(Math.random() * backdropLibraryContent.length)];
-        const vmCostume = {
-            name: item.name,
-            md5: item.md5,
-            rotationCenterX: item.info[0] && item.info[0] / 2,
-            rotationCenterY: item.info[1] && item.info[1] / 2,
-            bitmapResolution: item.info.length > 2 ? item.info[2] : 1,
-            skinId: null
-        };
-        this.handleNewCostume(vmCostume);
+        const jsonLoader = require('../lib/libraries/json-loader').default;
+        jsonLoader(`/static/libraries-json/backdrops.json`)
+          .then((jsonResponse) => {
+            const item = jsonResponse[Math.floor(Math.random() * jsonResponse.length)];
+            const vmCostume = {
+                name: item.name,
+                md5: item.md5,
+                rotationCenterX: item.info[0] && item.info[0] / 2,
+                rotationCenterY: item.info[1] && item.info[1] / 2,
+                bitmapResolution: item.info.length > 2 ? item.info[2] : 1,
+                skinId: null
+            };
+            this.handleNewCostume(vmCostume);
+          })
     }
     handleCostumeUpload (e) {
         const storage = this.props.vm.runtime.storage;

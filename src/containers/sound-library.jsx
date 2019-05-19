@@ -10,9 +10,6 @@ import LibraryComponent from '../components/library/library.jsx';
 import soundIcon from '../components/asset-panel/icon--sound.svg';
 import soundIconRtl from '../components/asset-panel/icon--sound-rtl.svg';
 
-import soundLibraryContent from '../lib/libraries/sounds.json';
-import soundTags from '../lib/libraries/sound-tags';
-
 import {connect} from 'react-redux';
 
 const messages = defineMessages({
@@ -43,8 +40,40 @@ class SoundLibrary extends React.PureComponent {
          * @type {Promise<SoundPlayer>}
          */
         this.playingSoundPromise = null;
+
+        this.state = {
+          isLoading: true,
+          libraryContent: [],
+          tags: []
+        }
     }
     componentDidMount () {
+      const soundTags = require('../lib/libraries/backdrop-tags').default;
+      this.setState({
+        tags: soundTags
+      });
+
+      const jsonLoader = require('../lib/libraries/json-loader').default;
+      jsonLoader(`/static/libraries-json/sounds.json`)
+        .then((jsonResponse) => {
+          const soundLibraryThumbnailData = jsonResponse.map(sound => {
+            const {
+              md5,
+              ...otherData
+            } = sound;
+            return {
+              _md5: md5,
+              rawURL: this.props.isRtl ? soundIconRtl : soundIcon,
+              ...otherData
+            };
+          });
+
+          this.setState({
+            isLoading: false,
+            libraryContent: soundLibraryThumbnailData
+          });
+        })
+
         this.audioEngine = new AudioEngine();
         this.playingSoundPromise = null;
     }
@@ -126,24 +155,13 @@ class SoundLibrary extends React.PureComponent {
         });
     }
     render () {
-        // @todo need to use this hack to avoid library using md5 for image
-        const soundLibraryThumbnailData = soundLibraryContent.map(sound => {
-            const {
-                md5,
-                ...otherData
-            } = sound;
-            return {
-                _md5: md5,
-                rawURL: this.props.isRtl ? soundIconRtl : soundIcon,
-                ...otherData
-            };
-        });
-
+        const { isLoading, libraryContent, tags } = this.state;
         return (
             <LibraryComponent
-                data={soundLibraryThumbnailData}
+                isLoading={isLoading}
+                data={libraryContent}
                 id="soundLibrary"
-                tags={soundTags}
+                tags={tags}
                 title={this.props.intl.formatMessage(messages.libraryTitle)}
                 onItemMouseEnter={this.handleItemMouseEnter}
                 onItemMouseLeave={this.handleItemMouseLeave}

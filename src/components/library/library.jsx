@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {defineMessages, injectIntl, intlShape} from 'react-intl';
+import {defineMessages, injectIntl, intlShape, FormattedMessage} from 'react-intl';
 
 import LibraryItem from '../../containers/library-item.jsx';
 import Modal from '../../containers/modal.jsx';
@@ -156,35 +156,44 @@ class LibraryComponent extends React.Component {
                         }
                     </div>
                 )}
-                <div
+
+                {this.props.isLoading ?
+                  <div className={styles.statusMessage}>
+                    <FormattedMessage
+                      defaultMessage="Loading..."
+                      description="Loading backpack message"
+                      id="gui.backpack.loadingBackpack" />
+                  </div> :
+                  <div
                     className={classNames(styles.libraryScrollGrid, {
-                        [styles.withFilterBar]: this.props.filterable || this.props.tags
+                      [styles.withFilterBar]: this.props.filterable || this.props.tags
                     })}
                     ref={this.setFilteredDataRef}
-                >
+                  >
                     {this.getFilteredData().map((dataItem, index) => (
-                        <LibraryItem
-                            bluetoothRequired={dataItem.bluetoothRequired}
-                            collaborator={dataItem.collaborator}
-                            description={dataItem.description}
-                            disabled={dataItem.disabled}
-                            extensionId={dataItem.extensionId}
-                            featured={dataItem.featured}
-                            hidden={dataItem.hidden}
-                            iconMd5={dataItem.md5}
-                            iconRawURL={dataItem.rawURL}
-                            icons={dataItem.json && dataItem.json.costumes}
-                            id={index}
-                            insetIconURL={dataItem.insetIconURL}
-                            internetConnectionRequired={dataItem.internetConnectionRequired}
-                            key={`item_${index}`}
-                            name={dataItem.name}
-                            onMouseEnter={this.handleMouseEnter}
-                            onMouseLeave={this.handleMouseLeave}
-                            onSelect={this.handleSelect}
-                        />
+                      <LibraryItem
+                        bluetoothRequired={dataItem.bluetoothRequired}
+                        collaborator={dataItem.collaborator}
+                        description={dataItem.description}
+                        disabled={dataItem.disabled}
+                        extensionId={dataItem.extensionId}
+                        featured={dataItem.featured}
+                        hidden={dataItem.hidden}
+                        iconMd5={dataItem.md5}
+                        iconRawURL={dataItem.rawURL}
+                        icons={dataItem.json && dataItem.json.costumes}
+                        id={index}
+                        insetIconURL={dataItem.insetIconURL}
+                        internetConnectionRequired={dataItem.internetConnectionRequired}
+                        key={`item_${index}`}
+                        name={dataItem.name}
+                        onMouseEnter={this.handleMouseEnter}
+                        onMouseLeave={this.handleMouseLeave}
+                        onSelect={this.handleSelect}
+                      />
                     ))}
-                </div>
+                  </div>
+                }
             </Modal>
         );
     }
@@ -213,11 +222,13 @@ LibraryComponent.propTypes = {
     onItemSelected: PropTypes.func,
     onRequestClose: PropTypes.func,
     tags: PropTypes.arrayOf(PropTypes.shape(TagButton.propTypes)),
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    isLoading: PropTypes.bool
 };
 
 LibraryComponent.defaultProps = {
-    filterable: true
+    filterable: true,
+    isLoading: true
 };
 
 export default injectIntl(LibraryComponent);
