@@ -5,8 +5,6 @@ import {defineMessages, injectIntl, intlShape} from 'react-intl';
 import {connect} from 'react-redux';
 import VM from 'scratch-vm';
 
-import backdropLibraryContent from '../lib/libraries/backdrops.json';
-import backdropTags from '../lib/libraries/backdrop-tags';
 import LibraryComponent from '../components/library/library.jsx';
 
 const messages = defineMessages({
@@ -24,6 +22,23 @@ class BackdropLibrary extends React.Component {
         bindAll(this, [
             'handleItemSelect'
         ]);
+        this.state = {
+          libraryContent: [],
+          tags: []
+        }
+    }
+    componentDidMount() {
+      const backdropTags = require('../lib/libraries/backdrop-tags').default;
+      this.setState({
+        tags: backdropTags
+      });
+
+      process.nextTick(() => {
+        const backdropLibraryContent = require('../lib/libraries/backdrops.json');
+        this.setState({
+          libraryContent: backdropLibraryContent
+        });
+      })
     }
     handleItemSelect (item) {
         const vmBackdrop = {
@@ -37,11 +52,12 @@ class BackdropLibrary extends React.Component {
         this.props.vm.addBackdrop(item.md5, vmBackdrop);
     }
     render () {
+        const { libraryContent, tags } = this.state;
         return (
             <LibraryComponent
-                data={backdropLibraryContent}
+                data={libraryContent}
                 id="backdropLibrary"
-                tags={backdropTags}
+                tags={tags}
                 title={this.props.intl.formatMessage(messages.libraryTitle)}
                 onItemSelected={this.handleItemSelect}
                 onRequestClose={this.props.onRequestClose}

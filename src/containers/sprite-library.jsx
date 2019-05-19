@@ -4,9 +4,7 @@ import React from 'react';
 import {injectIntl, intlShape, defineMessages} from 'react-intl';
 import VM from 'scratch-vm';
 
-import spriteLibraryContent from '../lib/libraries/sprites.json';
 import randomizeSpritePosition from '../lib/randomize-sprite-position';
-import spriteTags from '../lib/libraries/sprite-tags';
 
 import LibraryComponent from '../components/library/library.jsx';
 
@@ -24,6 +22,23 @@ class SpriteLibrary extends React.PureComponent {
         bindAll(this, [
             'handleItemSelect'
         ]);
+        this.state = {
+          libraryContent: [],
+          tags: []
+        }
+    }
+    componentDidMount() {
+      const spriteTags = require('../lib/libraries/sprite-tags').default;
+      this.setState({
+        tags: spriteTags
+      });
+
+      process.nextTick(() => {
+        const spriteLibraryContent = require('../lib/libraries/sprites.json');
+        this.setState({
+          libraryContent: spriteLibraryContent
+        });
+      })
     }
     handleItemSelect (item) {
         // Randomize position of library sprite
@@ -33,11 +48,12 @@ class SpriteLibrary extends React.PureComponent {
         });
     }
     render () {
+        const { libraryContent, tags } = this.state;
         return (
             <LibraryComponent
-                data={spriteLibraryContent}
+                data={libraryContent}
                 id="spriteLibrary"
-                tags={spriteTags}
+                tags={tags}
                 title={this.props.intl.formatMessage(messages.libraryTitle)}
                 onItemSelected={this.handleItemSelect}
                 onRequestClose={this.props.onRequestClose}

@@ -1,6 +1,6 @@
 [
     {
-        "name": "Arctic",
+        "name": "北极-Arctic",
         "md5": "67e0db3305b3c8bac3a363b1c428892e.png",
         "type": "backdrop",
         "tags": [
@@ -19,7 +19,7 @@
         ]
     },
     {
-        "name": "Baseball 1",
+        "name": "棒球-Baseball 1",
         "md5": "825d9b54682c406215d9d1f98a819449.svg",
         "type": "backdrop",
         "tags": [
@@ -35,7 +35,7 @@
         ]
     },
     {
-        "name": "Baseball 2",
+        "name": "棒球-Baseball 2",
         "md5": "7be1f5b3e682813dac1f297e52ff7dca.svg",
         "type": "backdrop",
         "tags": [
@@ -51,7 +51,7 @@
         ]
     },
     {
-        "name": "Basketball 1",
+        "name": "篮球-Basketball 1",
         "md5": "e494c4f44897d94e0541f7036a302449.svg",
         "type": "backdrop",
         "tags": [
@@ -67,7 +67,7 @@
         ]
     },
     {
-        "name": "Basketball 2",
+        "name": "篮球-Basketball 2",
         "md5": "a5865738283613a2725b2c9dda6d8c78.png",
         "type": "backdrop",
         "tags": [
@@ -82,7 +82,7 @@
         ]
     },
     {
-        "name": "Beach Malibu",
+        "name": "马里布海滩-Beach Malibu",
         "md5": "050615fe992a00d6af0e664e497ebf53.png",
         "type": "backdrop",
         "tags": [
@@ -95,7 +95,7 @@
         ]
     },
     {
-        "name": "Beach Rio",
+        "name": "里约海滩-Beach Rio",
         "md5": "968f0ede6e70e1dbb763d6fd4c5003e0.png",
         "type": "backdrop",
         "tags": [
@@ -108,7 +108,7 @@
         ]
     },
     {
-        "name": "Bedroom 1",
+        "name": "卧室-Bedroom 1",
         "md5": "7aa6bbb2ddc4c10f901e1a50aeac1c7e.png",
         "type": "backdrop",
         "tags": [
@@ -122,7 +122,7 @@
         ]
     },
     {
-        "name": "Bedroom 2",
+        "name": "卧室-Bedroom 2",
         "md5": "e2f8b0dbd0a65d2ad8bfc21616662a6a.png",
         "type": "backdrop",
         "tags": [
@@ -135,7 +135,7 @@
         ]
     },
     {
-        "name": "Bedroom 3",
+        "name": "卧室-Bedroom 3",
         "md5": "8cc0b88d53345b3e337e8f028a32a4e7.png",
         "type": "backdrop",
         "tags": [
@@ -148,7 +148,7 @@
         ]
     },
     {
-        "name": "Bench With View",
+        "name": "公园长椅-Bench With View",
         "md5": "962201a2b712a302fb087f8f0dcb2076.png",
         "type": "backdrop",
         "tags": [
@@ -163,7 +163,7 @@
         ]
     },
     {
-        "name": "Blue Sky",
+        "name": "蓝色天空-Blue Sky",
         "md5": "e7c147730f19d284bcd7b3f00af19bb6.svg",
         "type": "backdrop",
         "tags": [
@@ -177,7 +177,7 @@
         ]
     },
     {
-        "name": "Blue Sky 2 ",
+        "name": "蓝色天空-Blue Sky 2 ",
         "md5": "5a906c2f272b77f59f0ef207857a8b3a.svg",
         "type": "backdrop",
         "tags": [
@@ -191,7 +191,7 @@
         ]
     },
     {
-        "name": "Boardwalk",
+        "name": "浮桥-Boardwalk",
         "md5": "de0e54cd11551566f044e7e6bc588b2c.png",
         "type": "backdrop",
         "tags": [
@@ -205,7 +205,7 @@
         ]
     },
     {
-        "name": "Canyon",
+        "name": "峡谷-Canyon",
         "md5": "c7c0b27b959193a0b570a9639cfe8158.png",
         "type": "backdrop",
         "tags": [
@@ -219,7 +219,7 @@
         ]
     },
     {
-        "name": "Castle 1",
+        "name": "城堡-Castle 1",
         "md5": "e1914ed7917267f1c2ef2b48004cade9.png",
         "type": "backdrop",
         "tags": [
@@ -232,7 +232,7 @@
         ]
     },
     {
-        "name": "Castle 2",
+        "name": "城堡-Castle 2",
         "md5": "951765ee7f7370f120c9df20b577c22f.png",
         "type": "backdrop",
         "tags": [
@@ -245,7 +245,7 @@
         ]
     },
     {
-        "name": "Castle 3",
+        "name": "城堡-Castle 3",
         "md5": "76fa99f67569fcd39b4be74ed38c33f3.png",
         "type": "backdrop",
         "tags": [
@@ -258,7 +258,7 @@
         ]
     },
     {
-        "name": "Castle 4",
+        "name": "城堡-Castle 4",
         "md5": "4f45f79af8e8dac3d41eb5a06ade61d4.png",
         "type": "backdrop",
         "tags": [
@@ -271,7 +271,7 @@
         ]
     },
     {
-        "name": "Chalkboard",
+        "name": "黑板-Chalkboard",
         "md5": "a8a24b5aa717bbef09dbe31368914427.png",
         "type": "backdrop",
         "tags": [
@@ -285,7 +285,7 @@
         ]
     },
     {
-        "name": "Circles",
+        "name": "圆圈阵列-Circles",
         "md5": "4e29033ec2b891a8f1ca21242811d403.svg",
         "type": "backdrop",
         "tags": [
@@ -298,7 +298,7 @@
         ]
     },
     {
-        "name": "City With Water",
+        "name": "水之城市-City With Water",
         "md5": "1ef98019fc94ea65a1b55d5521285c7a.png",
         "type": "backdrop",
         "tags": [
@@ -312,7 +312,7 @@
         ]
     },
     {
-        "name": "Colorful City",
+        "name": "多彩城市-Colorful City",
         "md5": "04d18ddd1b85f0ea30beb14b8da49f60.png",
         "type": "backdrop",
         "tags": [
@@ -329,7 +329,7 @@
         ]
     },
     {
-        "name": "Concert",
+        "name": "音乐会-Concert",
         "md5": "c8d90320d2966c08af8cdd1c6a7a93b5.png",
         "type": "backdrop",
         "tags": [
@@ -344,7 +344,7 @@
         ]
     },
     {
-        "name": "Desert",
+        "name": "沙漠-Desert",
         "md5": "d98a9526a34890cf4bad11b5409eae2a.png",
         "type": "backdrop",
         "tags": [
@@ -360,7 +360,7 @@
         ]
     },
     {
-        "name": "Farm",
+        "name": "农场-Farm",
         "md5": "1e8a70bd07f1dcba3383883f3b948266.png",
         "type": "backdrop",
         "tags": [
@@ -377,7 +377,7 @@
         ]
     },
     {
-        "name": "Field At Mit",
+        "name": "麻省理工一角-Field At Mit",
         "md5": "5b0a970202b464915915260c03f05455.png",
         "type": "backdrop",
         "tags": [
@@ -391,7 +391,7 @@
         ]
     },
     {
-        "name": "Flowers",
+        "name": "花卉-Flowers",
         "md5": "25a6ede51a96d4e55de2ffb81ae96f8c.png",
         "type": "backdrop",
         "tags": [
@@ -405,7 +405,7 @@
         ]
     },
     {
-        "name": "Forest",
+        "name": "森林-Forest",
         "md5": "92968ac16b2f0c3f7835a6dacd172c7b.png",
         "type": "backdrop",
         "tags": [
@@ -419,7 +419,7 @@
         ]
     },
     {
-        "name": "Galaxy",
+        "name": "银河系-Galaxy",
         "md5": "5fab1922f254ae9fd150162c3e392bef.png",
         "type": "backdrop",
         "tags": [
@@ -434,7 +434,7 @@
         ]
     },
     {
-        "name": "Garden-rock",
+        "name": "公园岩石-Garden-rock",
         "md5": "4f66053598bea0905e1559ab9d5a6e31.png",
         "type": "backdrop",
         "tags": [
@@ -449,7 +449,7 @@
         ]
     },
     {
-        "name": "Greek Theater",
+        "name": "希腊剧院-Greek Theater",
         "md5": "93d71e8b8a96cc007b8d68f36acd338a.png",
         "type": "backdrop",
         "tags": [
@@ -463,7 +463,7 @@
         ]
     },
     {
-        "name": "Hall",
+        "name": "门厅-Hall",
         "md5": "ea86ca30b346f27ca5faf1254f6a31e3.png",
         "type": "backdrop",
         "tags": [
@@ -476,7 +476,7 @@
         ]
     },
     {
-        "name": "Hay Field",
+        "name": "干草场-Hay Field",
         "md5": "da102a69d135973e0fc139131dec785a.png",
         "type": "backdrop",
         "tags": [
@@ -490,7 +490,7 @@
         ]
     },
     {
-        "name": "Hearts",
+        "name": "爱心-Hearts",
         "md5": "26d3418b2fbc1af2c5fea82e1c3df1db.svg",
         "type": "backdrop",
         "tags": [
@@ -503,7 +503,7 @@
         ]
     },
     {
-        "name": "Hill",
+        "name": "山丘-Hill",
         "md5": "2129c842f28d6881f622fdc3497ff2da.png",
         "type": "backdrop",
         "tags": [
@@ -517,7 +517,7 @@
         ]
     },
     {
-        "name": "Jungle",
+        "name": "丛林-Jungle",
         "md5": "f4f908da19e2753f3ed679d7b37650ca.png",
         "type": "backdrop",
         "tags": [
@@ -532,7 +532,7 @@
         ]
     },
     {
-        "name": "Jurassic",
+        "name": "侏罗纪-Jurassic",
         "md5": "64025bdca5db4938f65597e3682fddcf.svg",
         "type": "backdrop",
         "tags": [
@@ -547,7 +547,7 @@
         ]
     },
     {
-        "name": "Light",
+        "name": "白天-Light",
         "md5": "4b98c07876ed8997c3762e75790507b4.svg",
         "type": "backdrop",
         "tags": [
@@ -560,7 +560,7 @@
         ]
     },
     {
-        "name": "Metro",
+        "name": "地铁-Metro",
         "md5": "0b4a15ba028bf205ec051390d6ac4de7.png",
         "type": "backdrop",
         "tags": [
@@ -575,7 +575,7 @@
         ]
     },
     {
-        "name": "Moon",
+        "name": "月球-Moon",
         "md5": "0b1d2eaf22d62ef88de80ccde5578fba.png",
         "type": "backdrop",
         "tags": [
@@ -590,7 +590,7 @@
         ]
     },
     {
-        "name": "Mountain",
+        "name": "高山-Mountain",
         "md5": "f84989feee2cf462a1c597169777ee3c.png",
         "type": "backdrop",
         "tags": [
@@ -606,7 +606,7 @@
         ]
     },
     {
-        "name": "Mural",
+        "name": "壁画-Mural",
         "md5": "efb625f7e0b199b15f69e116cd053cea.png",
         "type": "backdrop",
         "tags": [
@@ -623,7 +623,7 @@
         ]
     },
     {
-        "name": "Nebula",
+        "name": "星云-Nebula",
         "md5": "9b5cdbd596da1b6149f56b794b6394f4.png",
         "type": "backdrop",
         "tags": [
@@ -639,7 +639,7 @@
         ]
     },
     {
-        "name": "Neon Tunnel",
+        "name": "霓虹灯隧道-Neon Tunnel",
         "md5": "57d2b13b2f73d3d878c72810c137b0d6.png",
         "type": "backdrop",
         "tags": [
@@ -654,7 +654,7 @@
         ]
     },
     {
-        "name": "Night City",
+        "name": "夜城-Night City",
         "md5": "6fdc795ff487204f72740567be5f64f9.png",
         "type": "backdrop",
         "tags": [
@@ -670,7 +670,7 @@
         ]
     },
     {
-        "name": "Night City With Street",
+        "name": "夜城街道-Night City With Street",
         "md5": "14443ad7907b6479d7562a12b8ae0efb.png",
         "type": "backdrop",
         "tags": [
@@ -686,7 +686,7 @@
         ]
     },
     {
-        "name": "Party",
+        "name": "派对-Party",
         "md5": "108160d0e44d1c340182e31c9dc0758a.svg",
         "type": "backdrop",
         "tags": [
@@ -700,7 +700,7 @@
         ]
     },
     {
-        "name": "Pathway",
+        "name": "通道-Pathway",
         "md5": "5d747ec036755a4b129f0d5b978bc61c.png",
         "type": "backdrop",
         "tags": [
@@ -714,7 +714,7 @@
         ]
     },
     {
-        "name": "Playground",
+        "name": "操场-Playground",
         "md5": "e5f794c8756ca0cead5cb7e7fe354c41.png",
         "type": "backdrop",
         "tags": [
@@ -728,7 +728,7 @@
         ]
     },
     {
-        "name": "Playing Field",
+        "name": "运动场-Playing Field",
         "md5": "2de108f3098e92f5c5976cf75d38e99d.png",
         "type": "backdrop",
         "tags": [
@@ -742,7 +742,7 @@
         ]
     },
     {
-        "name": "Pool",
+        "name": "游泳池-Pool",
         "md5": "6cab934df643d2fc508cfa90c0c4059b.png",
         "type": "backdrop",
         "tags": [
@@ -758,7 +758,7 @@
         ]
     },
     {
-        "name": "Rays",
+        "name": "阳光-Rays",
         "md5": "87e963282db9e020e8c4d075891ea12b.svg",
         "type": "backdrop",
         "tags": [
@@ -772,7 +772,7 @@
         ]
     },
     {
-        "name": "Refrigerator",
+        "name": "冰箱-Refrigerator",
         "md5": "98f053f9681e872f34fafd783ce72205.svg",
         "type": "backdrop",
         "tags": [
@@ -787,7 +787,7 @@
         ]
     },
     {
-        "name": "Room 1",
+        "name": "房间-Room 1",
         "md5": "a81668321aa3dcc0fc185d3e36ae76f6.png",
         "type": "backdrop",
         "tags": [
@@ -802,7 +802,7 @@
         ]
     },
     {
-        "name": "Room 2",
+        "name": "房间-Room 2",
         "md5": "05ae3e3bbea890a6e3552ffe8456775e.png",
         "type": "backdrop",
         "tags": [
@@ -815,7 +815,7 @@
         ]
     },
     {
-        "name": "Savanna",
+        "name": "稀树草原-Savanna",
         "md5": "9b020b8c7cb6a9592f7303add9441d8f.png",
         "type": "backdrop",
         "tags": [
@@ -832,7 +832,7 @@
         ]
     },
     {
-        "name": "School",
+        "name": "学校-School",
         "md5": "1dea69ac0f62cf538d368a7bde1372ac.png",
         "type": "backdrop",
         "tags": [
@@ -848,7 +848,7 @@
         ]
     },
     {
-        "name": "Slopes",
+        "name": "斜坡-Slopes",
         "md5": "63b6a69594a0a87888b56244bfa2ac1b.png",
         "type": "backdrop",
         "tags": [
@@ -866,7 +866,7 @@
         ]
     },
     {
-        "name": "Soccer",
+        "name": "足球-Soccer",
         "md5": "04a63154f04b09494354090f7cc2f1b9.png",
         "type": "backdrop",
         "tags": [
@@ -882,7 +882,7 @@
         ]
     },
     {
-        "name": "Soccer 2",
+        "name": "足球-Soccer 2",
         "md5": "b0dc1268cb595aaeef405bce40d1639c.png",
         "type": "backdrop",
         "tags": [
@@ -898,7 +898,7 @@
         ]
     },
     {
-        "name": "Space",
+        "name": "太空-Space",
         "md5": "84208d9a3718ec3c9fc5a32a792fa1d0.png",
         "type": "backdrop",
         "tags": [
@@ -915,7 +915,7 @@
         ]
     },
     {
-        "name": "Space City 1",
+        "name": "太空城市-Space City 1",
         "md5": "20344b0edcc498281e4cb80242a72667.png",
         "type": "backdrop",
         "tags": [
@@ -932,7 +932,7 @@
         ]
     },
     {
-        "name": "Space City 2",
+        "name": "太空城市-Space City 2",
         "md5": "32b2316fd375faa18088f6c57ebb1c8d.png",
         "type": "backdrop",
         "tags": [
@@ -949,7 +949,7 @@
         ]
     },
     {
-        "name": "Spaceship",
+        "name": "飞船-Spaceship",
         "md5": "0c450891306fa63ef02aa0fda7fd0ef9.png",
         "type": "backdrop",
         "tags": [
@@ -966,7 +966,7 @@
         ]
     },
     {
-        "name": "Spotlight",
+        "name": "聚光灯-Spotlight",
         "md5": "d26bf4c3980163d9106625cc2ea6c50d.png",
         "type": "backdrop",
         "tags": [
@@ -980,7 +980,7 @@
         ]
     },
     {
-        "name": "Stars",
+        "name": "星空-Stars",
         "md5": "47282ff0f7047c6fab9c94b531abf721.png",
         "type": "backdrop",
         "tags": [
@@ -994,7 +994,7 @@
         ]
     },
     {
-        "name": "Stripes",
+        "name": "条纹-Stripes",
         "md5": "a6a21f5c08d586e8daaebde37c97fb6f.svg",
         "type": "backdrop",
         "tags": [
@@ -1007,7 +1007,7 @@
         ]
     },
     {
-        "name": "Theater",
+        "name": "剧院-Theater",
         "md5": "c2b097bc5cdb6a14ef5485202bc5ee76.png",
         "type": "backdrop",
         "tags": [
@@ -1022,7 +1022,7 @@
         ]
     },
     {
-        "name": "Theater 2",
+        "name": "剧院-Theater 2",
         "md5": "061a78ed83495dd0acd6d62e83e1b972.png",
         "type": "backdrop",
         "tags": [
@@ -1035,7 +1035,7 @@
         ]
     },
     {
-        "name": "Tree",
+        "name": "树-Tree",
         "md5": "a23fbf972001c94637b568992f8fd7bd.png",
         "type": "backdrop",
         "tags": [
@@ -1049,7 +1049,7 @@
         ]
     },
     {
-        "name": "Underwater 1",
+        "name": "水下-Underwater 1",
         "md5": "fb907f72b310acc8b95cbf2d2cccabc9.svg",
         "type": "backdrop",
         "tags": [
@@ -1065,7 +1065,7 @@
         ]
     },
     {
-        "name": "Underwater 2",
+        "name": "水下-Underwater 2",
         "md5": "1517c21786d2d0edc2f3037408d850bd.png",
         "type": "backdrop",
         "tags": [
@@ -1080,7 +1080,7 @@
         ]
     },
     {
-        "name": "Urban",
+        "name": "城市一角-Urban",
         "md5": "1679049718869e1f548e1e8823e29c1c.png",
         "type": "backdrop",
         "tags": [
@@ -1096,7 +1096,7 @@
         ]
     },
     {
-        "name": "Wall 1",
+        "name": "墙壁-Wall 1",
         "md5": "7e5327c68ff6ddabc48dbfe4717a04fe.png",
         "type": "backdrop",
         "tags": [
@@ -1110,7 +1110,7 @@
         ]
     },
     {
-        "name": "Wall 2",
+        "name": "墙壁-Wall 2",
         "md5": "82d867fcd9f1b5f49e29c2f853d55665.png",
         "type": "backdrop",
         "tags": [
@@ -1124,7 +1124,7 @@
         ]
     },
     {
-        "name": "Water And Rocks",
+        "name": "水之岩石-Water And Rocks",
         "md5": "0015433a406a53f00b792424b823268c.png",
         "type": "backdrop",
         "tags": [
@@ -1141,7 +1141,7 @@
         ]
     },
     {
-        "name": "Wetland",
+        "name": "湿地-Wetland",
         "md5": "ef9973bcff6d4cbc558e946028ec7d23.png",
         "type": "backdrop",
         "tags": [
@@ -1158,7 +1158,7 @@
         ]
     },
     {
-        "name": "Winter",
+        "name": "冬季-Winter",
         "md5": "5fa9385a60b904672d0e46e9d768bb32.svg",
         "type": "backdrop",
         "tags": [
@@ -1174,7 +1174,7 @@
         ]
     },
     {
-        "name": "Witch House",
+        "name": "女巫之家-Witch House",
         "md5": "597b9a9813fe5d8d387283138a0b8f2b.svg",
         "type": "backdrop",
         "tags": [
@@ -1189,7 +1189,7 @@
         ]
     },
     {
-        "name": "Woods",
+        "name": "树木-Woods",
         "md5": "d26cfd278999c9e37d6af75c296a58df.svg",
         "type": "backdrop",
         "tags": [
@@ -1208,7 +1208,7 @@
         ]
     },
     {
-        "name": "Woods And Bench",
+        "name": "树林板凳-Woods And Bench",
         "md5": "4fcf7ed0de6c6b6e9b52c511b0650e9c.png",
         "type": "backdrop",
         "tags": [
@@ -1222,7 +1222,7 @@
         ]
     },
     {
-        "name": "Xy-grid",
+        "name": "坐标网络-Xy-grid",
         "md5": "9838d02002d05f88dc54d96494fbc202.png",
         "type": "backdrop",
         "tags": [
@@ -1237,7 +1237,7 @@
         ]
     },
     {
-        "name": "Xy-grid-20px",
+        "name": "坐标网络-Xy-grid-20px",
         "md5": "4eec0e1db92b8dea3e5bee25105e8f46.png",
         "type": "backdrop",
         "tags": [
@@ -1252,7 +1252,7 @@
         ]
     },
     {
-        "name": "Xy-grid-30px",
+        "name": "坐标网络-Xy-grid-30px",
         "md5": "3b8bcabd0ac683b7cb3673208039764b.png",
         "type": "backdrop",
         "tags": [

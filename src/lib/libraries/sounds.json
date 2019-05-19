@@ -1,6 +1,6 @@
 [
     {
-        "name": "A Bass",
+        "name": "A低音-A Bass",
         "md5": "c04ebf21e5e19342fa1535e4efcdb43b.wav",
         "sampleCount": 28160,
         "rate": 22050,
@@ -12,7 +12,7 @@
         ]
     },
     {
-        "name": "A Elec Bass",
+        "name": "A电低音-A Elec Bass",
         "md5": "5cb46ddd903fc2c9976ff881df9273c9.wav",
         "sampleCount": 5920,
         "rate": 22050,
@@ -24,7 +24,7 @@
         ]
     },
     {
-        "name": "A Elec Guitar",
+        "name": "A电低音-A Elec Guitar",
         "md5": "fa5f7fea601e9368dd68449d9a54c995.wav",
         "sampleCount": 44100,
         "rate": 22050,
@@ -36,7 +36,7 @@
         ]
     },
     {
-        "name": "A Elec Piano",
+        "name": "A电钢琴-A Elec Piano",
         "md5": "0cfa8e84d6a5cd63afa31d541625a9ef.wav",
         "sampleCount": 44100,
         "rate": 22050,
@@ -49,7 +49,7 @@
         ]
     },
     {
-        "name": "A Guitar",
+        "name": "A吉他-A Guitar",
         "md5": "ee753e87d212d4b2fb650ca660f1e839.wav",
         "sampleCount": 31872,
         "rate": 22050,
@@ -61,7 +61,7 @@
         ]
     },
     {
-        "name": "A Minor Ukulele",
+        "name": "A四弦琴-A Minor Ukulele",
         "md5": "69d25af0fd065da39c71439174efc589.wav",
         "sampleCount": 18267,
         "rate": 22050,
@@ -74,7 +74,7 @@
         ]
     },
     {
-        "name": "A Piano",
+        "name": "A钢琴-A Piano",
         "md5": "0727959edb2ea0525feed9b0c816991c.wav",
         "sampleCount": 44100,
         "rate": 22050,
@@ -86,7 +86,7 @@
         ]
     },
     {
-        "name": "A Sax",
+        "name": "A萨克斯-A Sax",
         "md5": "420991e0d6d99292c6d736963842536a.wav",
         "sampleCount": 6472,
         "rate": 22050,
@@ -98,7 +98,7 @@
         ]
     },
     {
-        "name": "A Trombone",
+        "name": "A长号-A Trombone",
         "md5": "863ccc8ba66e6dabbce2a1261c22be0f.wav",
         "sampleCount": 17227,
         "rate": 22050,
@@ -110,7 +110,7 @@
         ]
     },
     {
-        "name": "A Trumpet",
+        "name": "A喇叭-A Trumpet",
         "md5": "d2dd6b4372ca17411965dc92d52b2172.wav",
         "sampleCount": 13911,
         "rate": 22050,
@@ -122,7 +122,7 @@
         ]
     },
     {
-        "name": "Afro String",
+        "name": "非洲串-Afro String",
         "md5": "3477ccfde26047eeb93ff43a21ac7d3d.wav",
         "sampleCount": 9807,
         "rate": 11025,
@@ -130,7 +130,7 @@
         "tags": []
     },
     {
-        "name": "Alert",
+        "name": "警报-Alert",
         "md5": "f62e3bfccab9c23eee781473c94a009c.wav",
         "sampleCount": 21362,
         "rate": 22050,
@@ -143,7 +143,7 @@
         ]
     },
     {
-        "name": "Alien Creak1",
+        "name": "异形霹雳-Alien Creak1",
         "md5": "0377a7476136e5e8c780c64a4828922d.wav",
         "sampleCount": 8045,
         "rate": 11025,
@@ -154,7 +154,7 @@
         ]
     },
     {
-        "name": "Alien Creak2",
+        "name": "异形霹雳-Alien Creak2",
         "md5": "21f82b7f1a83c501539c5031aea4fa8c.wav",
         "sampleCount": 8300,
         "rate": 11025,
@@ -165,7 +165,7 @@
         ]
     },
     {
-        "name": "B Bass",
+        "name": "B低音-B Bass",
         "md5": "e31dcaf7bcdf58ac2a26533c48936c45.wav",
         "sampleCount": 25792,
         "rate": 22050,
@@ -177,7 +177,7 @@
         ]
     },
     {
-        "name": "B Elec Bass",
+        "name": "B电低音-B Elec Bass",
         "md5": "5a0701d0a914223b5288300ac94e90e4.wav",
         "sampleCount": 6208,
         "rate": 22050,
@@ -189,7 +189,7 @@
         ]
     },
     {
-        "name": "B Elec Guitar",
+        "name": "B电吉他-B Elec Guitar",
         "md5": "81f142d0b00189703d7fe9b1f13f6f87.wav",
         "sampleCount": 44100,
         "rate": 22050,
@@ -201,7 +201,7 @@
         ]
     },
     {
-        "name": "B Elec Piano",
+        "name": "B电钢琴-B Elec Piano",
         "md5": "9cc77167419f228503dd57fddaa5b2a6.wav",
         "sampleCount": 44100,
         "rate": 22050,
@@ -214,7 +214,7 @@
         ]
     },
     {
-        "name": "B Guitar",
+        "name": "B吉他-B Guitar",
         "md5": "2ae2d67de62df8ca54d638b4ad2466c3.wav",
         "sampleCount": 29504,
         "rate": 22050,
@@ -226,7 +226,7 @@
         ]
     },
     {
-        "name": "B Piano",
+        "name": "B钢琴-B Piano",
         "md5": "86826c6022a46370ed1afae69f1ab1b9.wav",
         "sampleCount": 44100,
         "rate": 22050,
@@ -238,7 +238,7 @@
         ]
     },
     {
-        "name": "B Sax",
+        "name": "B萨克斯-B Sax",
         "md5": "653ebe92d491b49ad5d8101d629f567b.wav",
         "sampleCount": 9555,
         "rate": 22050,
@@ -250,7 +250,7 @@
         ]
     },
     {
-        "name": "B Trombone",
+        "name": "B长号-B Trombone",
         "md5": "85b663229525b73d9f6647f78eb23e0a.wav",
         "sampleCount": 15522,
         "rate": 22050,
@@ -262,7 +262,7 @@
         ]
     },
     {
-        "name": "B Trumpet",
+        "name": "B喇叭-B Trumpet",
         "md5": "cad2bc57729942ed9b605145fc9ea65d.wav",
         "sampleCount": 14704,
         "rate": 22050,
@@ -274,7 +274,7 @@
         ]
     },
     {
-        "name": "Baa",
+        "name": "羊叫-Baa",
         "md5": "ca694053020e42704bcf1fc01a70f1c3.wav",
         "sampleCount": 41822,
         "rate": 22050,
@@ -285,7 +285,7 @@
         ]
     },
     {
-        "name": "Bark",
+        "name": "狗叫-Bark",
         "md5": "cd8fa8390b0efdd281882533fbfcfcfb.wav",
         "sampleCount": 3168,
         "rate": 22050,
@@ -293,7 +293,7 @@
         "tags": []
     },
     {
-        "name": "Basketball Bounce",
+        "name": "篮球反弹-Basketball Bounce",
         "md5": "1727f65b5f22d151685b8e5917456a60.wav",
         "sampleCount": 8099,
         "rate": 22050,
@@ -304,7 +304,7 @@
         ]
     },
     {
-        "name": "Bass Beatbox",
+        "name": "低音口技-Bass Beatbox",
         "md5": "28153621d293c86da0b246d314458faf.wav",
         "sampleCount": 6720,
         "rate": 22050,
@@ -312,7 +312,7 @@
         "tags": []
     },
     {
-        "name": "Beat Box1",
+        "name": "打击框-Beat Box1",
         "md5": "663270af0235bf14c890ba184631675f.wav",
         "sampleCount": 5729,
         "rate": 11025,
@@ -325,7 +325,7 @@
         ]
     },
     {
-        "name": "Beat Box2",
+        "name": "打击框-Beat Box2",
         "md5": "b9b8073f6aa9a60085ad11b0341a4af2.wav",
         "sampleCount": 5729,
         "rate": 11025,
@@ -338,7 +338,7 @@
         ]
     },
     {
-        "name": "Bell Cymbal",
+        "name": "钟钹-Bell Cymbal",
         "md5": "efddec047de95492f775a1b5b2e8d19e.wav",
         "sampleCount": 19328,
         "rate": 22050,
@@ -346,7 +346,7 @@
         "tags": []
     },
     {
-        "name": "Bell Toll",
+        "name": "钟鸣-Bell Toll",
         "md5": "25d61e79cbeba4041eebeaebd7bf9598.wav",
         "sampleCount": 45168,
         "rate": 11025,
@@ -369,7 +369,7 @@
         ]
     },
     {
-        "name": "Bird",
+        "name": "鸟-Bird",
         "md5": "18bd4b634a3f992a16b30344c7d810e0.wav",
         "sampleCount": 3840,
         "rate": 11025,
@@ -377,7 +377,7 @@
         "tags": []
     },
     {
-        "name": "Birthday",
+        "name": "生日-Birthday",
         "md5": "89691587a169d935a58c48c3d4e78534.wav",
         "sampleCount": 161408,
         "rate": 22050,
@@ -385,7 +385,7 @@
         "tags": []
     },
     {
-        "name": "Bite",
+        "name": "咬-Bite",
         "md5": "0039635b1d6853face36581784558454.wav",
         "sampleCount": 7672,
         "rate": 22050,
@@ -467,7 +467,7 @@
         ]
     },
     {
-        "name": "Bubbles",
+        "name": "泡泡-Bubbles",
         "md5": "78b0be9c9c2f664158b886bc7e794095.wav",
         "sampleCount": 45056,
         "rate": 11025,
@@ -483,7 +483,7 @@
         "tags": []
     },
     {
-        "name": "C Bass",
+        "name": "C低音-C Bass",
         "md5": "c3566ec797b483acde28f790994cc409.wav",
         "sampleCount": 44608,
         "rate": 22050,
@@ -495,7 +495,7 @@
         ]
     },
     {
-        "name": "C Elec Bass",
+        "name": "C电低音-C Elec Bass",
         "md5": "69eee3d038ea0f1c34ec9156a789236d.wav",
         "sampleCount": 5216,
         "rate": 22050,
@@ -507,7 +507,7 @@
         ]
     },
     {
-        "name": "C Elec Guitar",
+        "name": "C电吉他-C Elec Guitar",
         "md5": "0d340de02e14bebaf8dfa0e43eb3f1f9.wav",
         "sampleCount": 44100,
         "rate": 22050,
@@ -519,7 +519,7 @@
         ]
     },
     {
-        "name": "C Elec Piano",
+        "name": "C电钢琴-C Elec Piano",
         "md5": "8366ee963cc57ad24a8a35a26f722c2b.wav",
         "sampleCount": 44100,
         "rate": 22050,
@@ -532,7 +532,7 @@
         ]
     },
     {
-        "name": "C Guitar",
+        "name": "C吉他-C Guitar",
         "md5": "22baa07795a9a524614075cdea543793.wav",
         "sampleCount": 44864,
         "rate": 22050,
@@ -544,7 +544,7 @@
         ]
     },
     {
-        "name": "C Major Ukulele",
+        "name": "C四弦琴-C Major Ukulele",
         "md5": "aa2ca112507b59b5337f341aaa75fb08.wav",
         "sampleCount": 18203,
         "rate": 22050,
@@ -557,7 +557,7 @@
         ]
     },
     {
-        "name": "C Piano",
+        "name": "C钢琴-C Piano",
         "md5": "d27ed8d953fe8f03c00f4d733d31d2cc.wav",
         "sampleCount": 44100,
         "rate": 22050,
@@ -569,7 +569,7 @@
         ]
     },
     {
-        "name": "C Sax",
+        "name": "C萨克斯-C Sax",
         "md5": "4d2c939d6953b5f241a27a62cf72de64.wav",
         "sampleCount": 9491,
         "rate": 22050,
@@ -581,7 +581,7 @@
         ]
     },
     {
-        "name": "C Trombone",
+        "name": "C长号-C Trombone",
         "md5": "821b23a489201a0f21f47ba8528ba47f.wav",
         "sampleCount": 19053,
         "rate": 22050,
@@ -593,7 +593,7 @@
         ]
     },
     {
-        "name": "C Trumpet",
+        "name": "C喇叭-C Trumpet",
         "md5": "8970afcdc4e47bb54959a81fe27522bd.wav",
         "sampleCount": 13118,
         "rate": 22050,
@@ -605,7 +605,7 @@
         ]
     },
     {
-        "name": "C2 Bass",
+        "name": "C2低音-C2 Bass",
         "md5": "667d6c527b79321d398e85b526f15b99.wav",
         "sampleCount": 24128,
         "rate": 22050,
@@ -617,7 +617,7 @@
         ]
     },
     {
-        "name": "C2 Elec Bass",
+        "name": "C2电低音-C2 Elec Bass",
         "md5": "56fc995b8860e713c5948ecd1c2ae572.wav",
         "sampleCount": 5792,
         "rate": 22050,
@@ -629,7 +629,7 @@
         ]
     },
     {
-        "name": "C2 Elec Guitar",
+        "name": "C2电吉他-C2 Elec Guitar",
         "md5": "3a8ed3129f22cba5b0810bc030d16b5f.wav",
         "sampleCount": 44100,
         "rate": 22050,
@@ -641,7 +641,7 @@
         ]
     },
     {
-        "name": "C2 Elec Piano",
+        "name": "C2电钢琴-C2 Elec Piano",
         "md5": "366c7edbd4dd5cca68bf62902999bd66.wav",
         "sampleCount": 44100,
         "rate": 22050,
@@ -654,7 +654,7 @@
         ]
     },
     {
-        "name": "C2 Guitar",
+        "name": "C2吉他-C2 Guitar",
         "md5": "c8d2851bd99d8e0ce6c1f05e4acc7f34.wav",
         "sampleCount": 27712,
         "rate": 22050,
@@ -662,7 +662,7 @@
         "tags": []
     },
     {
-        "name": "C2 Piano",
+        "name": "C2钢琴-C2 Piano",
         "md5": "75d7d2c9b5d40dd4e1cb268111abf1a2.wav",
         "sampleCount": 44100,
         "rate": 22050,
@@ -674,7 +674,7 @@
         ]
     },
     {
-        "name": "C2 Sax",
+        "name": "C2萨克斯-C2 Sax",
         "md5": "ea8d34b18c3d8fe328cea201666458bf.wav",
         "sampleCount": 7349,
         "rate": 22050,
@@ -686,7 +686,7 @@
         ]
     },
     {
-        "name": "C2 Trombone",
+        "name": "C2长号-C2 Trombone",
         "md5": "68aec107bd3633b2ee40c532eedc3897.wav",
         "sampleCount": 13904,
         "rate": 22050,
@@ -698,7 +698,7 @@
         ]
     },
     {
-        "name": "C2 Trumpet",
+        "name": "C2喇叭-C2 Trumpet",
         "md5": "df08249ed5446cc5e10b7ac62faac89b.wav",
         "sampleCount": 15849,
         "rate": 22050,
@@ -710,7 +710,7 @@
         ]
     },
     {
-        "name": "Car Horn",
+        "name": "汽车喇叭-Car Horn",
         "md5": "7c887f6a2ecd1cdb85d5527898d7f7a0.wav",
         "sampleCount": 42443,
         "rate": 22050,
@@ -721,7 +721,7 @@
         ]
     },
     {
-        "name": "Car Passing",
+        "name": "汽车通过-Car Passing",
         "md5": "c21a5ad00b40b5ce923e56c905c94a9f.wav",
         "sampleCount": 84992,
         "rate": 11025,
@@ -733,7 +733,7 @@
         ]
     },
     {
-        "name": "Car Vroom",
+        "name": "汽车快速通过Car Vroom",
         "md5": "ead1da4a87ff6cb53441142f7ac37b8f.wav",
         "sampleCount": 43358,
         "rate": 22050,
@@ -744,7 +744,7 @@
         ]
     },
     {
-        "name": "Cave",
+        "name": "洞穴-Cave",
         "md5": "881f1bf5f301a36efcce4204a44af9ab.wav",
         "sampleCount": 163584,
         "rate": 22050,
@@ -778,7 +778,7 @@
         ]
     },
     {
-        "name": "Cheer",
+        "name": "欢呼-Cheer",
         "md5": "170e05c29d50918ae0b482c2955768c0.wav",
         "sampleCount": 108864,
         "rate": 22050,
@@ -900,7 +900,7 @@
         ]
     },
     {
-        "name": "Coin",
+        "name": "金币-Coin",
         "md5": "1f81d88fb419084f4d82ffb859b94ed6.wav",
         "sampleCount": 3975,
         "rate": 22050,
@@ -912,7 +912,7 @@
         ]
     },
     {
-        "name": "Collect",
+        "name": "收集-Collect",
         "md5": "32514c51e03db680e9c63857b840ae78.wav",
         "sampleCount": 13320,
         "rate": 22050,
@@ -943,7 +943,7 @@
         ]
     },
     {
-        "name": "Connect",
+        "name": "连接-Connect",
         "md5": "9aad12085708ccd279297d4bea9c5ae0.wav",
         "sampleCount": 22623,
         "rate": 22050,
@@ -955,7 +955,7 @@
         ]
     },
     {
-        "name": "Cough1",
+        "name": "咳嗽Cough1",
         "md5": "98ec3e1eeb7893fca519aa52cc1ef3c1.wav",
         "sampleCount": 7516,
         "rate": 11025,
@@ -965,7 +965,7 @@
         ]
     },
     {
-        "name": "Cough2",
+        "name": "咳嗽Cough2",
         "md5": "467fe8ef3cab475af4b3088fd1261510.wav",
         "sampleCount": 16612,
         "rate": 22050,
@@ -1371,7 +1371,7 @@
         ]
     },
     {
-        "name": "Disconnect",
+        "name": "断开-Disconnect",
         "md5": "56df0714ed1ed455a2befd787a077214.wav",
         "sampleCount": 27563,
         "rate": 22050,
@@ -3843,7 +3843,7 @@
         ]
     },
     {
-        "name": "Water Drop",
+        "name": "水滴-Water Drop",
         "md5": "e133e625fd367d269e76964d4b722fc2.wav",
         "sampleCount": 15131,
         "rate": 22050,
@@ -3864,7 +3864,7 @@
         ]
     },
     {
-        "name": "Whistle Thump",
+        "name": "哨子-Whistle Thump",
         "md5": "a3fab5681aedaa678982173ed9ca3d36.wav",
         "sampleCount": 14441,
         "rate": 22050,
@@ -3888,7 +3888,7 @@
         ]
     },
     {
-        "name": "Whoop",
+        "name": "叫喊-Whoop",
         "md5": "fbbbb76a2f53dae6ff1cf61b41f66038.wav",
         "sampleCount": 54400,
         "rate": 11025,
@@ -3900,7 +3900,7 @@
         ]
     },
     {
-        "name": "Win",
+        "name": "赢-Win",
         "md5": "db480f6d5ae6d494dbb76ffb9bd995d5.wav",
         "sampleCount": 44771,
         "rate": 22050,
@@ -3912,7 +3912,7 @@
         ]
     },
     {
-        "name": "Wobble",
+        "name": "摇晃-Wobble",
         "md5": "9913a64bfb5cfa6bb30ec24002cce56b.wav",
         "sampleCount": 39950,
         "rate": 22050,
@@ -3924,7 +3924,7 @@
         ]
     },
     {
-        "name": "Wolf Howl",
+        "name": "狼嚎-Wolf Howl",
         "md5": "5e36d74bb16aa5085b901362788b0fbf.wav",
         "sampleCount": 43008,
         "rate": 11025,

@@ -88,9 +88,10 @@
 }
 
 .library-item-name {
-    width: 80%;
+    width: 90%;
     margin: 0.25rem 0;
     text-align: center;
+    font-size: 14px;
 
     /*
         For truncating overflowing text gracefully
