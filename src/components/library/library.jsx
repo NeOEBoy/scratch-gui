@@ -228,7 +228,7 @@ LibraryComponent.propTypes = {
 
 LibraryComponent.defaultProps = {
     filterable: true,
-    isLoading: true
+    isLoading: false
 };
 
 export default injectIntl(LibraryComponent);
