@@ -39,6 +39,11 @@ class SpriteSelectorItem extends React.PureComponent {
       this.getCostumeData();
     }
 
+    componentDidUpdate() {
+      // console.log('SpriteSelectorItem componentDidUpdate')
+      this.getCostumeData();
+    }
+
     getCostumeData () {
         if (this.props.costumeURL) {
           this.setState({costumeData: this.props.costumeURL});
