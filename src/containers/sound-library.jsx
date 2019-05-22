@@ -48,7 +48,7 @@ class SoundLibrary extends React.PureComponent {
         }
     }
     componentDidMount () {
-      const soundTags = require('../lib/libraries/backdrop-tags').default;
+      const soundTags = require('../lib/libraries/sound-tags').default;
       this.setState({
         tags: soundTags
       });
