@@ -226,6 +226,14 @@ const ProjectSaverHOC = function (WrappedComponent) {
             // serialized project refers to a newer asset than what
             // we just finished saving).
             const savedVMState = this.props.vm.toJSON();
+
+            // 新添加角色，声音asset的clean为true不知道为什么，待调查？
+            // console.log('storeProject projectId = ' + projectId);
+            // console.log('this.props.vm.assets.length = ' + this.props.vm.assets.length);
+
+            // projectId为空，代表会新建一个project，所有资源再次上传下-neo
+            if(projectId === null) this.props.vm.assets.map(asset=>asset.clean = false);
+
             return Promise.all(this.props.vm.assets
                 .filter(asset => !asset.clean)
                 .map(
