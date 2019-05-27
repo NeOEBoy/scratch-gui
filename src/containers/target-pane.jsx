@@ -107,7 +107,10 @@ class TargetPane extends React.Component {
       const jsonLoader = require('../lib/libraries/json-loader').default;
       jsonLoader(`/static/libraries-json/sprites.json`)
         .then((jsonResponse) => {
-          const item = jsonResponse[Math.floor(Math.random() * jsonResponse.length)];
+          const surpriseSprites = jsonResponse.filter(sprite =>
+            (sprite.tags.indexOf('letters') === -1) && (sprite.tags.indexOf('numbers') === -1)
+          );
+          const item = surpriseSprites[Math.floor(Math.random() * surpriseSprites.length)];
           randomizeSpritePosition(item);
           this.props.vm.addSprite(JSON.stringify(item.json))
             .then(this.handleActivateBlocksTab);
