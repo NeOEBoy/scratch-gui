@@ -86,8 +86,14 @@ export default function (vm) {
     };
 
     const costumesMenu = function () {
+        const next = ScratchBlocks.ScratchMsgs.translate('LOOKS_NEXTCOSTUME', 'next costume');
+        const previous = ScratchBlocks.ScratchMsgs.translate('LOOKS_PREVIOUSCOSTUME', 'previous costume');
+        const random = ScratchBlocks.ScratchMsgs.translate('LOOKS_RANDOMCOSTUME', 'random costume');
         if (vm.editingTarget && vm.editingTarget.getCostumes().length > 0) {
-            return vm.editingTarget.getCostumes().map(costume => [costume.name, costume.name]);
+            return vm.editingTarget.getCostumes().map(costume => [costume.name, costume.name])
+              .concat([[next, 'next costume'],
+              [previous, 'previous costume'],
+              [random, 'random costume']]);
         }
         return [['', '']];
     };
