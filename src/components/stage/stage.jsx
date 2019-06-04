@@ -34,16 +34,18 @@ const StageComponent = props => {
     } = props;
 
     // 在绝对模式下，大小外部传入，否则自己根据模式计算
-    let stageDimensions = {width: 0, height: 0, scale: 1};
+    let stageDimensions = {widthDefault: 0, heightDefault: 0, width: 0, height: 0, scale: 1};
     if(stageSize != STAGE_SIZE_MODES.absolute) {
       stageDimensions = getStageDimensions(stageSize, isFullScreen);
     } else if(theStageDimensions) {
-      let floatWidth = parseFloat(theStageDimensions.width);
-      let standardStageWidth = parseFloat(theLayout.standardStageWidth);
-      theStageDimensions.scale = (floatWidth / standardStageWidth).toFixed(2);
-
+      stageDimensions.widthDefault = theLayout.standardStageWidth;
+      stageDimensions.heightDefault = theLayout.standardStageHeight;
       stageDimensions.width = theStageDimensions.width;
       stageDimensions.height = parseInt(stageDimensions.width * 3 / 4);
+
+      let floatWidth = parseFloat(theStageDimensions.width);
+      let standardStageWidth = parseFloat(theLayout.standardStageWidth);
+      stageDimensions.scale = (floatWidth / standardStageWidth).toFixed(2);
     }
 
     return (
