@@ -103,6 +103,14 @@
     min-width: 0;
 }
 
+.library-item-multiple  {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  right: -20px;
+  top: -14px;
+}
+
 .featured-item {
     flex-basis: 300px;
     max-width: 300px;

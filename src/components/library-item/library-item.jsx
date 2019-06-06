@@ -7,6 +7,7 @@ import styles from './library-item.css';
 import classNames from 'classnames';
 
 import bluetoothIconURL from './bluetooth.svg';
+import multipleIconURL from './multiple.svg';
 import internetConnectionIconURL from './internet-connection.svg';
 
 /* eslint-disable react/prefer-stateless-function */
@@ -126,6 +127,13 @@ class LibraryItemComponent extends React.PureComponent {
                             src={this.props.iconURL}
                         />
                     </Box>
+
+                    {/* 多张图片增加下标志方便选择-neo */}
+                    {
+                      this.props.icons && this.props.icons.length > 1 ?
+                      <img className={styles.libraryItemMultiple} src={multipleIconURL}/>
+                      : null
+                    }
                 </Box>
                 <span className={styles.libraryItemName}>{this.props.name}</span>
             </Box>
