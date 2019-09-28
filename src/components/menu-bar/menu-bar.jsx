@@ -70,7 +70,10 @@ import remixIcon from './icon--remix.svg';
 import dropdownCaret from './dropdown-caret.svg';
 import languageIcon from '../language-selector/language-icon.svg';
 
-import scratchLogo from './scratch-logo.svg';
+// 更换为儒越的logo -neo
+// import scratchLogo from './scratch-logo.svg';
+import scratchLogo from './logo-sm5.png';
+
 
 import sharedMessages from '../../lib/shared-messages';
 
