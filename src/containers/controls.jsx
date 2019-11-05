@@ -24,12 +24,23 @@ class Controls extends React.Component {
       'handleSpaceDown',
       'handleSpaceUp',
       '_handleDown',
-      '_handleUp'
+      '_handleUp',
+      'doArrowFlagActiveTrueIfWechat',
+      'doArrowFlagActiveIfWechat',
+      'doArrowFlagActive'
     ]);
   }
   componentDidMount() {
+    // console.log('controls componentDidMount');
+    this.props.vm.on(
+      'RUNTIME_STARTED', this.doArrowFlagActiveTrueIfWechat);
   }
   componentWillUnmount() {
+    // console.log('controls componentWillUnmount');
+
+    this.props.vm.removeListener(
+      'RUNTIME_STARTED', this.doArrowFlagActiveTrueIfWechat);
+
     this.nipple && this.nipple.destroy();
     this.nipple = null;
     this._longPressTimer && clearTimeout(this._longPressTimer);
@@ -37,8 +48,10 @@ class Controls extends React.Component {
   }
   handleNippleStart(evt, data) {
     // do nothing
+    // evt.preventDefault();
   }
   handleNippleEnd(evt, data) {
+    // evt.preventDefault();
     if (this._lastDirectInfo) {
       this._handleUp(this._lastDirectInfo.keyCode, this._lastDirectInfo.key);
       this._lastDirectInfo = null;
@@ -70,6 +83,8 @@ class Controls extends React.Component {
 
     this._lastDirectInfo = { keyCode: keyCode, key: key };
     this._handleDown(keyCode, key);
+
+    return false;
   }
   handleSpaceDown() {
     this._handleDown(32, ' ');
@@ -106,6 +121,7 @@ class Controls extends React.Component {
     });
   }
   _is_weixin() {
+    // return true;
     let ua = navigator.userAgent.toLowerCase();
     return ua.match(/MicroMessenger/i) == "micromessenger";
   }
@@ -120,9 +136,7 @@ class Controls extends React.Component {
       this.props.vm.greenFlag();
 
       // 微信中启动后，直接弹出操作杆
-      if(this._is_weixin()) {
-        this.doArrowFlagActive(true);
-      }
+      this.doArrowFlagActiveIfWechat(true);
     }
   }
   handleStopAllClick(e) {
@@ -130,14 +144,23 @@ class Controls extends React.Component {
     this.props.vm.stopAll();
 
     // 微信中启动后，直接关闭操作杆
-    if(this._is_weixin()) {
-      this.doArrowFlagActive(false);
-    }
+    this.doArrowFlagActiveIfWechat(false);
   }
   handleArrowFlagClick(e) {
     e.preventDefault();
 
     this.doArrowFlagActive(!this.state.arrowFlagActive);
+  }
+
+  doArrowFlagActiveTrueIfWechat() {
+    // console.log('controls doArrowFlagActiveTrueIfWechat');
+
+    this.doArrowFlagActiveIfWechat(true);
+  }
+  doArrowFlagActiveIfWechat(active) {
+    if (this._is_weixin()) {
+      this.doArrowFlagActive(active);
+    }
   }
 
   doArrowFlagActive(active) {
@@ -233,7 +256,7 @@ class Controls extends React.Component {
           </div>
 
           <div style={{ position: 'absolute', right: 0, width: 24, height: 24, marginRight: 4, marginTop: 4 }} onClick={this.handleArrowFlagClick}>
-            <img src={require('./close.svg')} style={{ width: 24, height: 24, userSelect: "none"}} />
+            <img src={require('./close.svg')} style={{ width: 24, height: 24, userSelect: "none" }} />
           </div>
 
           <div style={{ color: 'white', fontSize: 12, marginTop: 4, marginLeft: 4 }}>
