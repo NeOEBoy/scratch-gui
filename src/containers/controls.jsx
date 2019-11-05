@@ -39,7 +39,7 @@ class Controls extends React.Component {
     // do nothing
   }
   handleNippleEnd(evt, data) {
-    if(this._lastDirectInfo) {
+    if (this._lastDirectInfo) {
       this._handleUp(this._lastDirectInfo.keyCode, this._lastDirectInfo.key);
       this._lastDirectInfo = null;
     }
@@ -63,12 +63,12 @@ class Controls extends React.Component {
       key = 'ArrowRight';
     }
 
-    if(this._lastDirectInfo) {
+    if (this._lastDirectInfo) {
       this._handleUp(this._lastDirectInfo.keyCode, this._lastDirectInfo.key);
       this._lastDirectInfo = null;
     }
 
-    this._lastDirectInfo = {keyCode: keyCode, key: key};
+    this._lastDirectInfo = { keyCode: keyCode, key: key };
     this._handleDown(keyCode, key);
   }
   handleSpaceDown() {
@@ -105,6 +105,10 @@ class Controls extends React.Component {
       isDown: isDown
     });
   }
+  _is_weixin() {
+    let ua = navigator.userAgent.toLowerCase();
+    return ua.match(/MicroMessenger/i) == "micromessenger";
+  }
   handleGreenFlagClick(e) {
     e.preventDefault();
     if (e.shiftKey) {
@@ -114,39 +118,56 @@ class Controls extends React.Component {
         this.props.vm.start();
       }
       this.props.vm.greenFlag();
+
+      // 微信中启动后，直接弹出操作杆
+      if(this._is_weixin()) {
+        this.doArrowFlagActive(true);
+      }
     }
   }
   handleStopAllClick(e) {
     e.preventDefault();
     this.props.vm.stopAll();
+
+    // 微信中启动后，直接关闭操作杆
+    if(this._is_weixin()) {
+      this.doArrowFlagActive(false);
+    }
   }
   handleArrowFlagClick(e) {
     e.preventDefault();
-    this.setState({
-      arrowFlagActive: !this.state.arrowFlagActive
-    });
 
-    // 避免position出错
-    setTimeout(() => {
-      if (!this.nipple && this.state.arrowFlagActive) {
-        this.nipple && this.nipple.destroy();
-        this.nipple = nipplejs.create({
-          zone: this.theControlDiv,
-          mode: 'static',
-          position: { left: '100px', bottom: '100px' },
-          color: 'rgb(255,171,25)',
-          restOpacity: 1
-        });
-        this.nipple
-        .on('dir:up, dir:down, dir:left, dir:right', this.handleNippleDirection)
-        .on('start', this.handleNippleStart)
-        .on('end', this.handleNippleEnd);
-      } else if (this.nipple && !this.state.arrowFlagActive) {
-        this.nipple && this.nipple.destroy();
-        this.nipple = null;
-      }
-    }, 150);
+    this.doArrowFlagActive(!this.state.arrowFlagActive);
   }
+
+  doArrowFlagActive(active) {
+    this.setState({
+      arrowFlagActive: active
+    }, () => {
+      // 避免position出错
+      setTimeout(() => {
+        if (!this.nipple && this.state.arrowFlagActive) {
+          this.nipple && this.nipple.destroy();
+          this.nipple = nipplejs.create({
+            zone: this.theControlDiv,
+            mode: 'static',
+            position: { left: '100px', bottom: '100px' },
+            color: 'rgb(255,171,25)',
+            size: 100,
+            restOpacity: 1
+          });
+          this.nipple
+            .on('dir:up, dir:down, dir:left, dir:right', this.handleNippleDirection)
+            .on('start', this.handleNippleStart)
+            .on('end', this.handleNippleEnd);
+        } else if (this.nipple && !this.state.arrowFlagActive) {
+          this.nipple && this.nipple.destroy();
+          this.nipple = null;
+        }
+      }, 500);
+    });
+  }
+
   render() {
     const {
       vm, // eslint-disable-line no-unused-vars
@@ -173,11 +194,14 @@ class Controls extends React.Component {
           {Object.assign({}, KStyles.arrowFlagDivDefault, arrowFlagActive && KStyles.arrowFlagDivActive)}>
           <div style=
             {{
-              width: 200, height: 200, position: 'absolute', left: 0,
+              width: 200, height: 200, position: 'absolute', left: 0
             }}
             ref={(theControlDiv) => {
               this.theControlDiv = theControlDiv;
             }}>
+
+            <img src={require('./crossroads-arrows.png')}
+              style={{ marginLeft: 55, marginTop: 55, width: 90, height: 90, userSelect: "none" }}></img>
           </div>
 
           <div style=
@@ -202,10 +226,18 @@ class Controls extends React.Component {
               {{
                 width: 200, height: 200, textAlign: "center",
                 verticalAlign: 'middle', display: 'table-cell',
-                contentEditable: false, userSelect: false
+                contentEditable: false, userSelect: "none"
               }}>
-              Space
+              空格
                   </h3>
+          </div>
+
+          <div style={{ position: 'absolute', right: 0, width: 24, height: 24, marginRight: 4, marginTop: 4 }} onClick={this.handleArrowFlagClick}>
+            <img src={require('./close.svg')} style={{ width: 24, height: 24, userSelect: "none"}} />
+          </div>
+
+          <div style={{ color: 'white', fontSize: 12, marginTop: 4, marginLeft: 4 }}>
+            虚拟手柄(左边方向按键，右边空格按键)
           </div>
         </div>
       </div>
@@ -216,15 +248,15 @@ class Controls extends React.Component {
 const KStyles = {
   arrowFlagDivDefault: {
     height: 200,
-    // 暂时去掉背景，避免遮住舞台区
-    // backgroundColor: 'rgba(76, 151, 255, 0.85)',
+    // 放开背景
+    backgroundColor: 'rgba(76, 151, 255, 0.95)',
     position: 'fixed',
     left: 0,
     right: 0,
     bottom: -200,
     zIndex: 20122211,
     // 属性动画，all表示将Active的属性全部设置动画，目前只有bottom
-    transition: '0.15s all'
+    transition: '0.3s all'
   },
   // 激活时的属性变化
   arrowFlagDivActive: {
