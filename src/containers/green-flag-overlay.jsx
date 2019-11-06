@@ -33,7 +33,7 @@ class GreenFlagOverlay extends React.Component {
             draggable={false}
             src={greenFlag}
           />
-          <div style={{ fontSize: 8 }}>点击运行</div>
+          <div style={{ fontSize: 10 }}>点击运行</div>
         </div>
       </Box>
     );
