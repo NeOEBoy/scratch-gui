@@ -26,6 +26,7 @@ class Controls extends React.Component {
       '_handleDown',
       '_handleUp',
       'doArrowFlagActiveTrueIfWechat',
+      'doArrowFlagActiveFalseIfWechat',
       'doArrowFlagActiveIfWechat',
       'doArrowFlagActive'
     ]);
@@ -33,13 +34,17 @@ class Controls extends React.Component {
   componentDidMount() {
     // console.log('controls componentDidMount');
     this.props.vm.on(
-      'RUNTIME_STARTED', this.doArrowFlagActiveTrueIfWechat);
+      'PROJECT_START', this.doArrowFlagActiveTrueIfWechat);
+    this.props.vm.on(
+      'PROJECT_STOP_ALL', this.doArrowFlagActiveFalseIfWechat);
   }
   componentWillUnmount() {
     // console.log('controls componentWillUnmount');
 
     this.props.vm.removeListener(
-      'RUNTIME_STARTED', this.doArrowFlagActiveTrueIfWechat);
+      'PROJECT_START', this.doArrowFlagActiveTrueIfWechat);
+    this.props.vm.removeListener(
+      'PROJECT_STOP_ALL', this.doArrowFlagActiveFalseIfWechat);
 
     this.nipple && this.nipple.destroy();
     this.nipple = null;
@@ -134,9 +139,6 @@ class Controls extends React.Component {
         this.props.vm.start();
       }
       this.props.vm.greenFlag();
-
-      // 微信中启动后，直接弹出操作杆
-      this.doArrowFlagActiveIfWechat(true);
     }
   }
   handleStopAllClick(e) {
@@ -156,6 +158,11 @@ class Controls extends React.Component {
     // console.log('controls doArrowFlagActiveTrueIfWechat');
 
     this.doArrowFlagActiveIfWechat(true);
+  }
+  doArrowFlagActiveFalseIfWechat() {
+    // console.log('controls doArrowFlagActiveTrueIfWechat');
+
+    this.doArrowFlagActiveIfWechat(false);
   }
   doArrowFlagActiveIfWechat(active) {
     if (this._is_weixin()) {

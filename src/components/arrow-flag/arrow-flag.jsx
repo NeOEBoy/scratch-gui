@@ -38,6 +38,6 @@ ArrowFlagComponent.propTypes = {
 };
 ArrowFlagComponent.defaultProps = {
     active: false,
-    title: '弹出操作杆'
+    title: '弹出手柄'
 };
 export default ArrowFlagComponent;
