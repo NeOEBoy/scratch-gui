@@ -11,7 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $motion-primary;
+    background-color: $red-tertiary;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: center;
     color: white;
@@ -22,6 +22,12 @@
     position: fixed;
     /* Use the fullscreen stage z-index to allow covering full-screen mode */
     z-index: $z-index-stage-wrapper-overlay;
+}
+
+.welcome {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0.75rem 0;
 }
 
 .block-animation {

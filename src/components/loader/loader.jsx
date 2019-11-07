@@ -153,6 +153,11 @@ class LoaderComponent extends React.Component {
                 })}
             >
                 <div className={styles.container}>
+
+                    <div className={styles.welcome}>
+                      儒越编程欢迎您~
+                    </div>
+
                     <div className={styles.blockAnimation}>
                         <img
                             className={styles.topBlock}
